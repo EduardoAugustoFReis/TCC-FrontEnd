@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Eduardo",
+      "email": "edu@test.com",
+      "password": "123456",
+      "phone": "99999999"
+    },
+    {
+      "id": "7e06",
+      "name": "Ana",
+      "email": "ana@email.com",
+      "password": "123",
+      "phone": "61 88888-8888"
+    },
+    {
+      "id": "1567",
+      "name": "Daniel",
+      "email": "daniel@email.com",
+      "password": "123",
+      "phone": "61 77777-7777"
+    },
+    {
+      "id": "2bf6",
+      "name": "Teste",
+      "email": "teste@email.com",
+      "password": "123",
+      "phone": "61 99999-9999"
+    },
+    {
+      "id": "9fe2",
+      "name": "teste2",
+      "email": "teste2@email.com",
+      "password": "123456",
+      "phone": "61 99999-9999"
+    }
+  ]
+}
