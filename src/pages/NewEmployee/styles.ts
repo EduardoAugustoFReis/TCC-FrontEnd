@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
 
-export const NewBarberContainer = styled.div``;
+export const NewEmployeeContainer = styled.div``;
 
-export const NewBarberForm = styled.form`
+export const NewEmployeeForm = styled.form`
   display: flex;
   flex-direction: column;
   padding: 2.4rem;

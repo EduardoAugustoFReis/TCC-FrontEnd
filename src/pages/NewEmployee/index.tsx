@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Input from "../../components/Input";
-import { NewBarberContainer, NewBarberForm } from "./styles";
+import { NewEmployeeContainer, NewEmployeeForm } from "./styles";
 import { Link } from "react-router-dom";
+import Input from "../../components/Input";
 import SelectNewBarber from "../../components/SelectNewBarber";
 import { api } from "../../services/api";
 
@@ -57,10 +57,10 @@ const NewEmployee = () => {
   };
 
   return (
-    <NewBarberContainer>
+    <NewEmployeeContainer>
       <Link to="/home">Voltar para a Home</Link>
 
-      <NewBarberForm onSubmit={handleNewEmployeeSubmit}>
+      <NewEmployeeForm onSubmit={handleNewEmployeeSubmit}>
         <h2>Cadastre um novo Funcionário</h2>
         <Input
           id="none"
@@ -105,8 +105,8 @@ const NewEmployee = () => {
         />
 
         <button type="submit">Cadastrar</button>
-      </NewBarberForm>
-    </NewBarberContainer>
+      </NewEmployeeForm>
+    </NewEmployeeContainer>
   );
 };
 

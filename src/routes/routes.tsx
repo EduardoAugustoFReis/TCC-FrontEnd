@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp";
 import LayoutPage from "../components/LayoutPages";
 import ProtectedRoute from "../components/ProtectedRoute";
 import NewEmployee from "../pages/NewEmployee";
+import NewService from "../pages/NewService";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         children: [
           { path: "/home", element: <Home /> },
           { path: "/new-employee", element: <NewEmployee /> },
+          { path: "/new-service", element: <NewService /> },
         ],
       },
     ],
