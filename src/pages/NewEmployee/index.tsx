@@ -5,21 +5,40 @@ import { Link } from "react-router-dom";
 import SelectNewBarber from "../../components/SelectNewBarber";
 import { api } from "../../services/api";
 
-const NewBarber = () => {
+const NewEmployee = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("");
+  const [avatar, setAvatar] = useState<File | null>(null);
 
-  const handleNewBarberSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNewEmployeeSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
+
+    if (!role) {
+      alert("Selecione uma função antes de enviar!");
+      return;
+    }
+
     try {
-      const response = await api.post("/users", {
-        name,
-        email,
-        phone,
-        role,
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("phone", phone);
+      formData.append("role", role);
+
+      if (avatar) {
+        formData.append("avatar", avatar);
+      }
+
+      const response = await api.post("/users", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       alert("Funcionário cadastrado com sucesso.");
@@ -27,8 +46,10 @@ const NewBarber = () => {
 
       setName("");
       setEmail("");
+      setPassword("");
       setPhone("");
       setRole("");
+      setAvatar(null);
     } catch (error) {
       console.log("Erro ao cadastrar novo funcionário.", error);
       alert("Erro ao cadastrar funcionário.");
@@ -39,8 +60,8 @@ const NewBarber = () => {
     <NewBarberContainer>
       <Link to="/home">Voltar para a Home</Link>
 
-      <NewBarberForm onSubmit={handleNewBarberSubmit}>
-        <h2>Cadastre um novo barbeiro</h2>
+      <NewBarberForm onSubmit={handleNewEmployeeSubmit}>
+        <h2>Cadastre um novo Funcionário</h2>
         <Input
           id="none"
           label="Nome"
@@ -56,10 +77,10 @@ const NewBarber = () => {
         />
 
         <Input
-        id="password"
-        label="Senha"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
+          id="password"
+          label="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <Input
@@ -71,10 +92,16 @@ const NewBarber = () => {
 
         <SelectNewBarber
           id="role"
-          label="Papel do seu funcionário"
+          label="Função"
           options={["admin", "barbeiro"]}
           value={role}
-          onChange={(e) => setRole(e.target.value)}
+          onChange={(e) => setRole(e.target.value as "admin" | "barbeiro")}
+        />
+        <Input
+          type="file"
+          id="avatar"
+          label="Imagem do barbeiro"
+          onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 
         <button type="submit">Cadastrar</button>
@@ -83,4 +110,4 @@ const NewBarber = () => {
   );
 };
 
-export default NewBarber;
+export default NewEmployee;

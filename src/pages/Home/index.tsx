@@ -11,7 +11,7 @@ const Home = () => {
   };
 
   const handleNewBarber = () => {
-    navigate("/new-barber");
+    navigate("/new-employee");
   };
 
   return (
