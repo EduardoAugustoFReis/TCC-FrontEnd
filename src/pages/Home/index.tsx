@@ -1,18 +1,25 @@
-import useAuth from "../../context/Auth/useAuth";
 import Header from "../../components/Header";
-import { HomerContainer } from "./styles";
+import SectionHome from "../../components/SectionHomePage";
+import UserDataSection from "../../components/UserDataSection";
+import { HomerContainer, MainHomeContent } from "./styles";
 
 const Home = () => {
-  const { user } = useAuth();
-
   return (
     <HomerContainer>
       <Header />
-      <h1>Home</h1>
-      
-      <p>Bem vindo {user?.name}</p>
-      <p>Seu número: {user?.phone}</p>
-      <p>Seu E-mail: {user?.email}</p>
+      <MainHomeContent>
+        <h1>Home</h1>
+        <UserDataSection />
+        <SectionHome title="Nossos Serviços">
+          <p>Nossos serviços</p>
+        </SectionHome>
+
+         <SectionHome title="Conheça nosso time de Barbeiros">
+          <p>Nossos barbeiros</p>
+        </SectionHome>
+
+      </MainHomeContent>
+
     </HomerContainer>
   );
 };

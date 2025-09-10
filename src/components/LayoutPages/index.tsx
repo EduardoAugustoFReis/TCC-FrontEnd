@@ -7,6 +7,7 @@ const LayoutPage = () => {
       <main>
         <Outlet />
       </main>
+
     </LayoutContainer>
   )
 }

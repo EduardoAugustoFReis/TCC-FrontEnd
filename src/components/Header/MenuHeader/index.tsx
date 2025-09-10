@@ -4,11 +4,15 @@ import { MenuHeaderContainer } from "./styles";
 //import { BsList } from "react-icons/bs";
 
 const MenuHeader = () => {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth(); //
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
     navigate("/");
+  };
+
+  const handleMyAccount = () => {
+    navigate("/my-account");
   };
 
   const handleNewEmployee = () => {
@@ -27,6 +31,7 @@ const MenuHeader = () => {
       {user?.role === "admin" && (
         <button onClick={handleNewService}>Cadastre um seviço</button>
       )}
+      <button onClick={handleMyAccount}>Minha Conta</button>
       <button onClick={handleLogout}>Logout</button>
     </MenuHeaderContainer>
   );

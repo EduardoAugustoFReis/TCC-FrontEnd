@@ -7,6 +7,7 @@ import LayoutPage from "../components/LayoutPages";
 import ProtectedRoute from "../components/ProtectedRoute";
 import NewEmployee from "../pages/NewEmployee";
 import NewService from "../pages/NewService";
+import MyAccount from "../pages/MyAccount";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
           { path: "/home", element: <Home /> },
           { path: "/new-employee", element: <NewEmployee /> },
           { path: "/new-service", element: <NewService /> },
+          { path: "/my-account", element: <MyAccount /> },
         ],
       },
     ],
