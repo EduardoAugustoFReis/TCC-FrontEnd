@@ -3,30 +3,38 @@ import { MyAccountContainer, MyAccountForm } from "./styles";
 import Input from "../../components/Input";
 import { useState } from "react";
 import { api } from "../../services/api";
+import useAuth from "../../context/Auth/useAuth";
 
 const MyAccount = () => {
+  const { setUser } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("password", password);
+      if (name.trim()) formData.append("name", name);
+      if (email.trim()) formData.append("email", email);
+      if (password.trim()) formData.append("password", password);
+      if (phone.trim()) formData.append("phone", phone);
+
       if (avatar) {
         formData.append("avatar", avatar);
       }
-      const response = await api.put("/users", formData, {
+
+      const {data: updatedUser} = await api.put(`/users`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      console.log(response);
+      alert("Dados atualizados com sucesso.");
+      setUser(updatedUser)
+      localStorage.setItem("user", JSON.stringify(updatedUser));  
     } catch (error) {
       console.log("Erro ao atulizar usuário", error);
     }
@@ -61,6 +69,15 @@ const MyAccount = () => {
           placeholder="Digite sua nova Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <Input
+          label="Telefone"
+          type="phone"
+          id="phone"
+          placeholder="Digite seu novo número"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
 
         <Input

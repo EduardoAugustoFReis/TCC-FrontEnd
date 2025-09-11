@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { SectionHomeContainer } from "./styles";
 
 interface SectionHomeProps {
-  children: ReactNode;
+  children?: ReactNode;
   title?: string;
 }
 

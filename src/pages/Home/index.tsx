@@ -1,3 +1,5 @@
+import BarbersData from "../../components/BarbersData";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import SectionHome from "../../components/SectionHomePage";
 import UserDataSection from "../../components/UserDataSection";
@@ -8,18 +10,16 @@ const Home = () => {
     <HomerContainer>
       <Header />
       <MainHomeContent>
-        <h1>Home</h1>
         <UserDataSection />
         <SectionHome title="Nossos Serviços">
           <p>Nossos serviços</p>
         </SectionHome>
 
-         <SectionHome title="Conheça nosso time de Barbeiros">
-          <p>Nossos barbeiros</p>
+        <SectionHome title="Conheça nosso time de Barbeiros">
+          <BarbersData />
         </SectionHome>
-
       </MainHomeContent>
-
+      <Footer />
     </HomerContainer>
   );
 };

@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
 
-export const NewEmployeeContainer = styled.div``;
+export const NewEmployeeContainer = styled.div`
+  padding: 1.2rem;
+  
+  a {
+    font-size: 1.6rem;
+  }
+
+`;
 
 export const NewEmployeeForm = styled.form`
   display: flex;

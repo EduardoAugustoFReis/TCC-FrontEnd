@@ -49,7 +49,7 @@ const SignUp = () => {
         <Input
           label="Nome"
           id="name"
-          placeholder="Ex: João"
+          placeholder="Digite seu nome"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -65,7 +65,7 @@ const SignUp = () => {
           label="Senha"
           id="password"
           type="password"
-          placeholder="Ex: 123456"
+          placeholder="Digite sua senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
