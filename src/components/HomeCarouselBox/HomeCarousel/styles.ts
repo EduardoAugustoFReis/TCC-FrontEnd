@@ -28,7 +28,7 @@ export const HomeCarouselContainer = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
 
     .image {
-      min-width: 30.0rem;
+      min-width: 22.0rem;
     }
   }
 `;

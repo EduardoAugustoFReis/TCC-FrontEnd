@@ -1,39 +1,59 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../context/Auth/useAuth";
-import { MenuHeaderContainer } from "./styles";
-//import { BsList } from "react-icons/bs";
+import { BurgerButton, MenuHeaderContainer } from "./styles";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const MenuHeader = () => {
-  const { user, logout } = useAuth(); //
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const closeMenu = () => setOpen(false);
+
   const handleLogout = () => {
     logout();
     navigate("/");
+    closeMenu();
   };
 
   const handleMyAccount = () => {
     navigate("/my-account");
+    closeMenu();
   };
 
   const handleNewEmployee = () => {
     navigate("/new-employee");
+    closeMenu();
   };
 
   const handleNewService = () => {
     navigate("/new-service");
+    closeMenu();
   };
 
   return (
-    <MenuHeaderContainer>
-      {user?.role === "admin" && (
-        <button onClick={handleNewEmployee}>Cadastre um funcionário</button>
-      )}
-      {user?.role === "admin" && (
-        <button onClick={handleNewService}>Cadastre um seviço</button>
-      )}
-      <button onClick={handleMyAccount}>Minha Conta</button>
-      <button onClick={handleLogout}>Logout</button>
-    </MenuHeaderContainer>
+    <>
+      {/* Burger fora do container para não ser transformado junto com o menu */}
+      <BurgerButton
+        aria-label={open ? "Fechar menu" : "Abrir menu"}
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        {open ? <FiX /> : <FiMenu />}
+      </BurgerButton>
+
+      <MenuHeaderContainer $open={open}>
+        {user?.role === "admin" && (
+          <button onClick={handleNewEmployee}>Cadastre um funcionário</button>
+        )}
+        {user?.role === "admin" && (
+          <button onClick={handleNewService}>Cadastre um serviço</button>
+        )}
+        <button onClick={handleMyAccount}>Minha Conta</button>
+        <button onClick={handleLogout}>Logout</button>
+      </MenuHeaderContainer>
+    </>
   );
 };
 

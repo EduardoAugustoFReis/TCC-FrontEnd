@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../styles/breakpoints";
 
 export const GreetingSectionContainer = styled.section`
   display: flex;
@@ -14,5 +15,16 @@ export const GreetingSectionContainer = styled.section`
 
   p {
     font-size: 2.4rem;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    
+    h2 {
+      font-size: 2.4rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
   }
 `;
