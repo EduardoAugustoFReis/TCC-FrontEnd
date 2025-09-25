@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import SelectNewBarber from "../../components/SelectNewBarber";
 import { api } from "../../services/api";
+import InputFilePreview from "../../components/InputFile";
 
 const NewEmployee = () => {
   const [name, setName] = useState("");
@@ -92,15 +93,15 @@ const NewEmployee = () => {
 
         <SelectNewBarber
           id="role"
-          label="Função"
+          label="Função:"
           options={["admin", "barbeiro"]}
           value={role}
           onChange={(e) => setRole(e.target.value as "admin" | "barbeiro")}
         />
-        <Input
-          type="file"
+
+        <InputFilePreview
           id="avatar"
-          label="Imagem do barbeiro"
+          label="Selecione a imagem do Funcionário"
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 

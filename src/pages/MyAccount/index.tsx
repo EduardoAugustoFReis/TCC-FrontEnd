@@ -4,6 +4,7 @@ import Input from "../../components/Input";
 import { useState } from "react";
 import { api } from "../../services/api";
 import useAuth from "../../context/Auth/useAuth";
+import InputFilePreview from "../../components/InputFile";
 
 const MyAccount = () => {
   const { setUser } = useAuth();
@@ -26,15 +27,15 @@ const MyAccount = () => {
         formData.append("avatar", avatar);
       }
 
-      const {data: updatedUser} = await api.put(`/users`, formData, {
+      const { data: updatedUser } = await api.put(`/users`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
       alert("Dados atualizados com sucesso.");
-      setUser(updatedUser)
-      localStorage.setItem("user", JSON.stringify(updatedUser));  
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
     } catch (error) {
       console.log("Erro ao atulizar usuário", error);
     }
@@ -80,10 +81,9 @@ const MyAccount = () => {
           onChange={(e) => setPhone(e.target.value)}
         />
 
-        <Input
-          label="Sua imagem:"
-          type="file"
+        <InputFilePreview
           id="avatar"
+          label="Sua imagem"
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 

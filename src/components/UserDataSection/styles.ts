@@ -5,7 +5,7 @@ export const UserDataSectionContainer = styled.section`
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.2rem;
-  border: 1px solid #000;
+  width: fit-content;
 
   img {
     border-radius: 50%;
