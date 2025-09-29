@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NewEmployeeContainer, NewEmployeeForm } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import SelectNewBarber from "../../components/SelectNewBarber";
 import { api } from "../../services/api";
@@ -13,6 +13,7 @@ const NewEmployee = () => {
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
+  const navigate = useNavigate();
 
   const handleNewEmployeeSubmit = async (
     e: React.FormEvent<HTMLFormElement>
@@ -50,7 +51,8 @@ const NewEmployee = () => {
       setPassword("");
       setPhone("");
       setRole("");
-      setAvatar(null);
+      setAvatar(null);  
+      navigate("/home");
     } catch (error) {
       console.log("Erro ao cadastrar novo funcionário.", error);
       alert("Erro ao cadastrar funcionário.");

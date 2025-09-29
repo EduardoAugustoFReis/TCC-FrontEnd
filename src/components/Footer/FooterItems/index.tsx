@@ -10,17 +10,17 @@ const FooterItems = () => {
 
       <ul>
         <li>
-          <a href="/home" target="_blank">
+          <a href="#">
             <FaInstagram />
           </a>
         </li>
         <li>
-          <a href="/home" target="_blank">
+          <a href="#">
             <FaSquareXTwitter />
           </a>
         </li>
         <li>
-          <a href="/home" target="_blank">
+          <a href="#">
             <FaFacebook />
           </a>
         </li>

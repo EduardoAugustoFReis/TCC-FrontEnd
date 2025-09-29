@@ -11,3 +11,11 @@ export interface ILoginResponse {
   user: IUser;
   token: string;
 }
+
+export interface IService {
+  id: number;
+  name: string;
+  price: number;
+  duration: string;
+  userId: number;
+}

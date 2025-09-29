@@ -22,13 +22,16 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     setLoading(true);
     try {
       // retorna um "user" e o token
-      const response = await api.post<ILoginResponse>("/login", { email, password });
+      const response = await api.post<ILoginResponse>("/login", {
+        email,
+        password,
+      });
 
       // pego o "user" e o token da "data"
       const { user: loggedUser, token } = response.data;
 
       // coloca no localstorage
-      localStorage.setItem("token", token); 
+      localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(loggedUser));
 
       // atualiza o estado com os dados do usuário
@@ -43,10 +46,16 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+  const logout = async () => {
+    try {
+      await api.post<ILoginResponse>("/login/logout");
+    } catch (error) {
+      console.log("Erro ao fazer logout", error);
+    } finally {
+      setUser(null);
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+    }
   };
   return (
     <AuthContext.Provider value={{ user, setUser, login, logout, loading }}>

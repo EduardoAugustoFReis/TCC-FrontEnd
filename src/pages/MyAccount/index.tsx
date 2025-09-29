@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MyAccountContainer, MyAccountForm } from "./styles";
 import Input from "../../components/Input";
 import { useState } from "react";
@@ -13,6 +13,8 @@ const MyAccount = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,6 +38,7 @@ const MyAccount = () => {
       alert("Dados atualizados com sucesso.");
       setUser(updatedUser);
       localStorage.setItem("user", JSON.stringify(updatedUser));
+      navigate("/home");
     } catch (error) {
       console.log("Erro ao atulizar usuário", error);
     }

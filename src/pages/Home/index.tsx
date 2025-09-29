@@ -4,6 +4,7 @@ import GreetingSection from "../../components/GreetingSection";
 import Header from "../../components/Header";
 import HomeCarouselBox from "../../components/HomeCarouselBox";
 import SectionHome from "../../components/SectionHomePage";
+import ServicesData from "../../components/ServiceData";
 import UserDataSection from "../../components/UserDataSection";
 import {
   CarouselHomeContainer,
@@ -19,18 +20,18 @@ const Home = () => {
       <MainHomeContent>
         <GreetingHomeContainer>
           <UserDataSection />
-          <GreetingSection/>
+          <GreetingSection />
         </GreetingHomeContainer>
 
         <CarouselHomeContainer>
           <HomeCarouselBox />
         </CarouselHomeContainer>
 
-        <SectionHome title="Nossos Serviços">
-          <p>Nossos serviços</p>
+        <SectionHome title="Conheça nossos serviços">
+          <ServicesData />
         </SectionHome>
 
-        <SectionHome title="Conheça nosso time de Barbeiros">
+        <SectionHome title="Conheça nosso time de barbeiros">
           <BarbersData />
         </SectionHome>
       </MainHomeContent>
