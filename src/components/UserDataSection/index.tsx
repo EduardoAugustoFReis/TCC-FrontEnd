@@ -2,6 +2,8 @@ import useAuth from "../../context/Auth/useAuth";
 import { api } from "../../services/api";
 import { UserDataSectionContainer } from "./styles";
 
+import placeholderAvatar from "../../assets/image/placeholder.png";
+
 const UserDataSection = () => {
   const { user } = useAuth();
   //${api.defaults.baseURL}${user.avatar}
@@ -11,7 +13,7 @@ const UserDataSection = () => {
       <div>
         <img
           src={
-            user?.avatar ? `${api.defaults.baseURL}${user.avatar}` : undefined
+            user?.avatar ? `${api.defaults.baseURL}${user.avatar}` : placeholderAvatar
           }
           alt={`Avatar de ${user?.name}`}
         />

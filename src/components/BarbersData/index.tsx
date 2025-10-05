@@ -17,7 +17,7 @@ const BarbersData = () => {
       }
     };
     fetchBarbersData();
-  }, [barbers]);
+  }, []);
 
   return (
     <BarbersDataContainer>

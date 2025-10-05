@@ -7,7 +7,7 @@ import { api } from "../../services/api";
 const NewService = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState(0);
   const navigate = useNavigate();
 
   const handleNewService = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,7 +24,7 @@ const NewService = () => {
         return;
       }
 
-      if (!duration.trim()) {
+      if (!duration || isNaN(duration) || duration <= 0) {
         alert("A duração é obrigatória.");
         return;
       }
@@ -38,7 +38,7 @@ const NewService = () => {
       alert("Serviço cadastrado com sucesso.");
       setName("");
       setPrice(0);
-      setDuration("");
+      setDuration(0);
       navigate("/home");
       console.log(response.data);
     } catch (error) {
@@ -49,7 +49,7 @@ const NewService = () => {
   const capitalizeFirst = (text: string) => {
     if (!text) return "";
     return text.charAt(0).toUpperCase() + text.slice(1);
-  }
+  };
 
   return (
     <NewServiceContainer>
@@ -74,10 +74,11 @@ const NewService = () => {
           />
           <Input
             id="duration"
-            label="Duração:"
+            label="Duração em minutos:"
+            type="number"
             placeholder="Digite a duração do serviço em minutos."
             value={duration}
-            onChange={(e) => setDuration(e.target.value)}
+            onChange={(e) => setDuration(Number(e.target.value))}
           />
 
           <button type="submit">Cadastrar</button>

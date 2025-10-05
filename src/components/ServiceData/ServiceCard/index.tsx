@@ -37,7 +37,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         <div className="textBox">
           <h3>{service.name}</h3>
           <p>Preço: R$ {service.price}</p>
-          <p>Duração: {service.duration}</p>
+          <p>Duração: {service.duration} minutos</p>
         </div>
       </div>
     </ServiceCardContainer>

@@ -17,7 +17,7 @@ const ServicesData = () => {
       }
     };
     fetchServices();
-  },[services])
+  },[])
 
   return (
     <ServiceDataContainer>
