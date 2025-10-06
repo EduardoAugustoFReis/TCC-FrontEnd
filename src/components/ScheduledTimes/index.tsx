@@ -14,7 +14,7 @@ const ScheduledTimes = ({ appointments, fetchAppointments }: ScheduledTimesProps
   
   return (
     <ScheduledTimesContainer> 
-      {user?.role === "cliente" && <ClientDashboard appointments={appointments}/>}
+      {user?.role === "cliente" && <ClientDashboard fetchAppointments={fetchAppointments} appointments={appointments}/>}
       {user?.role === "barbeiro" && <BarberDashboard fetchAppointments={fetchAppointments} appointments={appointments}/>}
     </ScheduledTimesContainer>
   )

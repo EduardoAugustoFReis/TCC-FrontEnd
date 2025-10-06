@@ -10,6 +10,11 @@ export const AppointmentContainer = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
   }
+
+   @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
+
+  }
 `;
 
 export const AppointmentForm = styled.form`
@@ -50,5 +55,10 @@ export const AppointmentForm = styled.form`
     flex-direction: column;
     gap: 1.0rem;
 
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    gap: 1.0rem;
   }
 `;

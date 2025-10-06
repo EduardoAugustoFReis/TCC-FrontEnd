@@ -6,7 +6,6 @@ export const ClientDashboardContainer = styled.div`
   gap: 1.2rem;
   padding: 1.5rem;
 
-
   .appointment-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -48,6 +47,19 @@ export const ClientDashboardContainer = styled.div`
       &.canceled {
         background: #f8d7da;
         color: #9a1d2aff;
+      }
+    }
+
+    button {
+      margin-top: 0.5rem;
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      background-color: #d82739ff;
+      color: #fff;
+      border: none;
+
+      &:hover {
+        background-color: #9a1d2aff;
       }
     }
   }

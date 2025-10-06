@@ -19,6 +19,7 @@ import {
   HomerContainer,
   MainHomeContent,
 } from "./styles";
+import AdminDashboard from "../../components/AdminDasboard";
 
 const Home = () => {
   const { user } = useAuth();
@@ -29,8 +30,10 @@ const Home = () => {
       let response;
       if (user?.role === "cliente") {
         response = await api.get<IAppointment[]>(`/appointments/client`);
-      } else {
+      } else if (user?.role === "barbeiro") {
         response = await api.get<IAppointment[]>(`/appointments/barbers`);
+      } else {
+        response = await api.get<IAppointment[]>(`/appointments`);
       }
       setAppointments(response.data);
     } catch (error) {
@@ -68,6 +71,12 @@ const Home = () => {
         <SectionHome title="Agende o seu horário">
           <AppointmentSection onAppointmentCreated={fetchAppointments} />
         </SectionHome>
+
+        {user?.role === "admin" && (
+          <SectionHome title="Dados sobre a barbearia">
+            <AdminDashboard appointments={appointments}/>
+          </SectionHome>
+        )}
 
         {(user?.role === "cliente" || user?.role === "barbeiro") && (
             <SectionHome title="Seus horários marcados">
