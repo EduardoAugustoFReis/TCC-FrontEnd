@@ -48,3 +48,8 @@ export interface IAppointment {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface ISlot {
+  start: string;
+  end: string;
+}

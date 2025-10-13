@@ -5,25 +5,25 @@ export const AppointmentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1.2rem;
+  padding: 0.8rem;
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
   }
 
-   @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.tablet}) {
     max-width: 100%;
-
   }
 `;
 
 export const AppointmentForm = styled.form`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-around;
+  gap: 1rem;
 
   label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
   }
 
@@ -34,6 +34,7 @@ export const AppointmentForm = styled.form`
   }
 
   input {
+    text-align: center;
     padding: 0.8rem;
     border-radius: 0.8rem;
     font-size: 1.4rem;
@@ -53,12 +54,49 @@ export const AppointmentForm = styled.form`
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
-    gap: 1.0rem;
+    width: 100%;
 
+    input {
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    gap: 1rem;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
-    gap: 1.0rem;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    gap: 1rem;
+  }
+`;
+
+export const TimeSelect = styled.select`
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+
+  option {
+    padding: 0.8rem;
   }
 `;

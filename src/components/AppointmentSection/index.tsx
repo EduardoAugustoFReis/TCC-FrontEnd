@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { AppointmentContainer, AppointmentForm } from "./styles";
-import type { IBaber, IService } from "../../types";
+import { AppointmentContainer, AppointmentForm, TimeSelect } from "./styles";
+import type { IBaber, IService, ISlot } from "../../types";
 import { api } from "../../services/api";
 
 interface AppointmentSectionProps {
@@ -12,9 +12,12 @@ const AppointmentSection = ({
 }: AppointmentSectionProps) => {
   const [barbers, setBarbers] = useState<IBaber[]>([]);
   const [services, setServices] = useState<IService[]>([]);
+  const [availableSlot, setAvailableSlot] = useState<ISlot[]>([]);
+
   const [selectBarber, setSelectBarber] = useState("");
   const [selectService, setSelectService] = useState("");
   const [startTime, setStartTime] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +37,25 @@ const AppointmentSection = ({
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchAvailableSlots = async () => {
+      if (!selectBarber || !selectService || !date) return;
+      try {
+        const response = await api.get(
+          `appointments/barbers/${selectBarber}/available`,
+          { params: { date, serviceId: selectService } }
+        );
+
+        console.log(response.data);
+        setAvailableSlot(response.data.availableSlots);
+      } catch (error) {
+        console.log("Erro ao buscar horários disponíveis", error);
+      }
+    };
+
+    fetchAvailableSlots();
+  }, [selectBarber, selectService, date]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,6 +89,15 @@ const AppointmentSection = ({
   return (
     <AppointmentContainer>
       <AppointmentForm onSubmit={handleSubmit}>
+        <label htmlFor="date">Escolha a data: </label>
+        <input
+          id="date"
+          name="date"
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+
         <label htmlFor="barber">Escolha o barbeiro: </label>
         <select
           name="barber"
@@ -97,14 +128,33 @@ const AppointmentSection = ({
           ))}
         </select>
 
-        <label htmlFor="startTime">Data e hora: </label>
-        <input
-          type="datetime-local"
-          id="startTime"
+        <label htmlFor="startTime">Escolha o horário: </label>
+        <TimeSelect
           name="startTime"
+          id="startTime"
           value={startTime}
           onChange={(e) => setStartTime(e.target.value)}
-        />
+        >
+          <option value="">Selecione um horário</option>
+          {availableSlot.map((slot, index) => {
+            const start = new Date(slot.start);
+            const end = new Date(slot.end);
+            const formattedStart = start.toLocaleTimeString("pt-BR", {
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+            const formattedEnd = end.toLocaleTimeString("pt-BR", {
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+
+            return (
+              <option key={index} value={slot.start}>
+                {`${formattedStart} - ${formattedEnd}`}
+              </option>
+            );
+          })}
+        </TimeSelect>
 
         <button type="submit">Agendar</button>
       </AppointmentForm>
