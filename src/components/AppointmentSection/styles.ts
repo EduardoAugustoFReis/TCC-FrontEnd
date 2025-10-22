@@ -5,8 +5,7 @@ export const AppointmentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 0.8rem;
-
+  padding: 1.2rem;
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
   }
@@ -17,12 +16,16 @@ export const AppointmentContainer = styled.div`
 `;
 
 export const AppointmentForm = styled.form`
+  width: 50%;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
   gap: 1rem;
-
+  padding: 1.2rem;
+  background-color: ${({ theme }) => theme.colors.whitePosca};
+  border-radius: 0.8rem;
+  
   label {
+    color: ${({ theme }) => theme.colors.jetBlack};
     font-size: 1.6rem;
     font-weight: bold;
   }
@@ -31,9 +34,15 @@ export const AppointmentForm = styled.form`
     padding: 0.8rem;
     border-radius: 0.8rem;
     font-size: 1.4rem;
+    color: ${({ theme }) => theme.colors.jetBlack};
+
+    option {
+      color: ${({ theme }) => theme.colors.jetBlack};
+    }
   }
 
   input {
+    color: ${({ theme }) => theme.colors.jetBlack};
     text-align: center;
     padding: 0.8rem;
     border-radius: 0.8rem;
@@ -46,9 +55,10 @@ export const AppointmentForm = styled.form`
     border-radius: 0.8rem;
     border: none;
     transition: background-color 0.3s ease;
-
+    color: ${({ theme }) => theme.colors.whitePosca};
+    background-color: ${({ theme }) => theme.colors.jetBlack};
     &:hover {
-      background-color: #c0c0c0;
+      color: ${({ theme }) => theme.colors.gold};
     }
   }
 
@@ -97,6 +107,7 @@ export const TimeSelect = styled.select`
   font-size: 1.4rem;
 
   option {
+    color: ${({ theme }) => theme.colors.jetBlack};
     padding: 0.8rem;
   }
 `;

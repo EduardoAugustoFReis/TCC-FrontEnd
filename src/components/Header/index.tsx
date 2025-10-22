@@ -1,10 +1,12 @@
 import MenuHeader from "./MenuHeader"
 import { HeaderContainer } from "./styles"
 
+import logoTransparent from "../../assets/image/logo transparente.png"
+
 const Header = () => {
   return (
     <HeaderContainer>
-      <h1>Logo da barbearia</h1>
+      <img src={logoTransparent} alt="Logo da barbearia" />
       <MenuHeader />
     </HeaderContainer>
   )

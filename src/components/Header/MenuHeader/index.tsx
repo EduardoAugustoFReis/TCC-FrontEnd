@@ -3,8 +3,10 @@ import useAuth from "../../../context/Auth/useAuth";
 import { BurgerButton, MenuHeaderContainer } from "./styles";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useTheme } from "styled-components";
 
 const MenuHeader = () => {
+  const theme = useTheme();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -40,7 +42,7 @@ const MenuHeader = () => {
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        {open ? <FiX /> : <FiMenu />}
+        {open ? <FiX color={theme.colors.whitePosca}/> : <FiMenu color={theme.colors.whitePosca}/>}
       </BurgerButton>
 
       <MenuHeaderContainer $open={open}>

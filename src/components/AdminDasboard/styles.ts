@@ -4,7 +4,7 @@ import { breakpoints } from "../../styles/breakpoints";
 export const AdminDashboardContainer = styled.div`
   display: flex;
   align-items: center;
-
+  justify-content: center;
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 2.0rem;

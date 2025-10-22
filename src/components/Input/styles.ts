@@ -20,12 +20,14 @@ export const StyledInputContainer = styled.div`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
+
     label {
-      font-size: 2.0rem;
+      font-size: 1.8em;
     }
 
     input {
-      font-size: 1.8rem;
+      padding: 0.8rem;
+      font-size: 1.6rem;
     }
   }
 `;

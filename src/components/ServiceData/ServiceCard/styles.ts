@@ -6,18 +6,22 @@ export const ServiceCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid #000;
+  border: 4px solid ${({ theme }) => theme.colors.gold};
   border-radius: 0.8rem;
-  padding: 1.8rem;
+  padding: 1.2rem;
+  background-color: ${({ theme }) => theme.colors.whitePosca};
 
   .textBox {
-    margin: 1.0rem 0rem;
+    margin: 1rem 0rem;
+
     h3 {
+      color: ${({ theme }) => theme.colors.jetBlack};
       font-size: 2rem;
       padding-bottom: 0.4rem;
     }
 
     p {
+      color: ${({ theme }) => theme.colors.jetBlack};
       font-size: 1.8rem;
     }
   }
@@ -30,6 +34,14 @@ export const ServiceCardContainer = styled.div`
     border: none;
     cursor: pointer;
     font-size: 1.8rem;
+
+    svg {
+      color: ${({ theme }) => theme.colors.jetBlack};
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.gold};
+      }
+    }
   }
 
   @media (max-width: ${breakpoints.mobile}) {

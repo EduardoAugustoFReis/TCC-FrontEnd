@@ -1,10 +1,12 @@
 import FooterItems from './FooterItems'
 import { FooterContainer } from './styles'
+import logoTransparent from "../../assets/image/logo transparente.png"
+
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <h1>Logo da barbearia</h1>
+      <img src={logoTransparent} alt="Imagem da logo" />
       <FooterItems />      
     </FooterContainer>
   )

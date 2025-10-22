@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { breakpoints } from "../../../styles/breakpoints";
 
 export const BarberCardContainer = styled.div`
-
   .barberCard {
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid #000;
+    border: 4px solid ${({ theme }) => theme.colors.gold};
     padding: 1rem;
     border-radius: 0.8rem;
     background: #fff;
@@ -27,7 +26,13 @@ export const BarberCardContainer = styled.div`
     border-radius: 0.8rem;
   }
 
+  strong {
+    color: ${({ theme }) => theme.colors.jetBlack};
+    font-size: 2.0rem;
+  }
+
   p {
+    color: ${({ theme }) => theme.colors.jetBlack};
     font-size: 1.6rem;
   }
 
@@ -39,16 +44,24 @@ export const BarberCardContainer = styled.div`
     border: none;
     cursor: pointer;
     font-size: 1.8rem;
-  }
 
-  @media (max-width: ${breakpoints.mobile}) {  
-      .barberCard {
-        flex-direction: column;
-      }
-  
-      img {
-        height: 15rem;
-        width: 15rem;
+    svg {
+      color: ${({ theme }) => theme.colors.jetBlack};
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.gold};
       }
     }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    .barberCard {
+      flex-direction: column;
+    }
+
+    img {
+      height: 15rem;
+      width: 15rem;
+    }
+  }
 `;

@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const FooterItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.0rem;
+  gap: 1rem;
 
   h3 {
     font-size: 1.8rem;
+    color: ${({ theme }) => theme.colors.whitePosca};
   }
   ul {
     display: flex;
@@ -14,8 +15,8 @@ export const FooterItemsContainer = styled.div`
     justify-content: space-around;
 
     a {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      color: ${({ theme }) => theme.colors.whitePosca};
     }
-
   }
 `;

@@ -11,14 +11,15 @@ export const GreetingSectionContainer = styled.section`
 
   h2 {
     font-size: 3.2rem;
+    color: ${({ theme }) => theme.colors.gold};
   }
 
   p {
     font-size: 2.4rem;
+    color: ${({ theme }) => theme.colors.whitePosca};
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    
     h2 {
       font-size: 2.4rem;
     }

@@ -19,10 +19,15 @@ export const InputFilePreviewContainer = styled.div`
   .buttonPreview {
     width: fit-content;
     cursor: pointer;
-    background: #fff;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.jetBlack};
     font-size: 1.6rem;
     padding: 0.8rem;
-    border: 1px solid #000;
+    border: 1px solid ${({ theme }) => theme.colors.black};
     border-radius: 0.8rem;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.gold};
+    }
   }
 `;

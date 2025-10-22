@@ -37,7 +37,7 @@ const BarberCard = ({ barber }: BarberCardProps) => {
           alt={`Avatar do ${barber.name}`}
         />
         <div className="textBox">
-          <p>{barber.name}</p>
+          <strong>{barber.name}</strong>
           <p>Telefone: {barber.phone}</p>
           <p>Email: {barber.email}</p>
         </div>

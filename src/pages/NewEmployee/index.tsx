@@ -62,6 +62,7 @@ const NewEmployee = () => {
   return (
     <NewEmployeeContainer>
       <Link to="/home">Voltar para a Home</Link>
+      <h1>Novos Funcionários</h1>
 
       <NewEmployeeForm onSubmit={handleNewEmployeeSubmit}>
         <h2>Cadastre um novo Funcionário</h2>

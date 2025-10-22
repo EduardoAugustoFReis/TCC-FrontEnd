@@ -1,5 +1,6 @@
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
 import type { IAppointment } from "../../../types";
+import { useTheme } from "styled-components";
 
 interface StatusChartProps {
   appointments: IAppointment[];
@@ -36,6 +37,7 @@ const renderCustomizedLabel = ({
 };
 
 export default function StatusChart({ appointments }: StatusChartProps) {
+  const theme = useTheme();
   const data = [
     {
       name: "Confirmados",
@@ -53,7 +55,7 @@ export default function StatusChart({ appointments }: StatusChartProps) {
 
   return (
     <div style={{ width: "100%", height: 320 }}>
-      <h3 style={{ textAlign: "center", marginBottom: "0.8rem", fontSize: "2.0rem" }}>
+      <h3 style={{ textAlign: "center", marginBottom: "0.8rem", fontSize: "2.0rem", color: theme.colors.whitePosca }}>
         Status dos Agendamentos
       </h3>
       <ResponsiveContainer>
@@ -78,7 +80,7 @@ export default function StatusChart({ appointments }: StatusChartProps) {
             verticalAlign="bottom"
             height={36}
             formatter={(value) => (
-              <span style={{ color: "#333", fontSize: "1.4rem" }}>{value}</span>
+              <span style={{ color: theme.colors.whitePosca, fontSize: "1.4rem" }}>{value}</span>
             )}
           />
         </PieChart>

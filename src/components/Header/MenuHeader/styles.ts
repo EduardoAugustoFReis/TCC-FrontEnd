@@ -6,9 +6,9 @@ export const BurgerButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: #000;
+  color: ${({ theme }) => theme.colors.whitePosca};
   font-size: 2rem;
-  position: absolute; 
+  position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 1100;
@@ -26,12 +26,10 @@ export const MenuHeaderContainer = styled.nav<{ $open: boolean }>`
   gap: 1rem;
 
   button {
+    cursor: pointer;
     padding: 1.2rem;
     border-radius: 0.8rem;
     transition: ease 0.2s;
-    background: transparent;
-    border: none;
-    cursor: pointer;
 
     &:hover {
       transform: scale(1.05);
@@ -41,25 +39,29 @@ export const MenuHeaderContainer = styled.nav<{ $open: boolean }>`
   @media (max-width: ${breakpoints.tablet}) {
     height: 100%;
     width: 100%;
-    padding: 4.0rem 2.8rem;
+    padding: 4rem 2.8rem;
     position: fixed;
     top: 0;
     left: 0;
     flex-direction: column;
     justify-content: right;
     align-items: flex-start;
-    background: #fff;
+    background: ${({ theme }) => theme.colors.jetBlack};
     transition: transform 0.2s ease-in-out;
     z-index: 1050;
     transform: ${({ $open }) =>
       $open ? "translateX(0)" : "translateX(-100%)"};
   }
 
-    button {
-      margin-top: 1.0rem;
-      width: 100%;
-      font-size: 1.6rem;
-      background-color: #ccc;
-      border-radius: 0.8rem;
-    }
+  button {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1.6rem;
+    background: ${({ theme }) => theme.colors.whitePosca};
+    color: ${({ theme }) => theme.colors.jetBlack};
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    border-radius: 0.8rem;
+  }
+
+ 
 `;

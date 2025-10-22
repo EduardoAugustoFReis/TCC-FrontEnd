@@ -1,11 +1,14 @@
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import type { IAppointment } from "../../../types";
+import { useTheme } from "styled-components";
 
 interface MostSelectedServicesChartProps {
   appointments: IAppointment[];
 }
 
 export default function MostSelectedServicesChart({ appointments }: MostSelectedServicesChartProps) {
+  const theme = useTheme();
+
   // Contagem de serviços mais selecionados
   const serviceCounts: Record<string, number> = {};
 
@@ -20,7 +23,7 @@ export default function MostSelectedServicesChart({ appointments }: MostSelected
   // Caso não haja dados
   if (data.length === 0) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem", color: "#777" }}>
+      <div style={{ textAlign: "center", padding: "2rem", color: theme.colors.whitePosca }}>
         Nenhum serviço agendado ainda.
       </div>
     );
@@ -28,7 +31,7 @@ export default function MostSelectedServicesChart({ appointments }: MostSelected
 
   return (
     <div style={{ width: "100%", height: 320 }}>
-      <h3 style={{ textAlign: "center", marginBottom: "1rem", fontSize: "2.0rem" }}>
+      <h3 style={{ textAlign: "center", marginBottom: "1rem", fontSize: "2.0rem", color: theme.colors.whitePosca }}>
         Serviços mais selecionados
       </h3>
       <ResponsiveContainer>

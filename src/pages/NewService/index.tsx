@@ -54,6 +54,8 @@ const NewService = () => {
   return (
     <NewServiceContainer>
       <Link to={`/home`}>Voltar para Home</Link>
+      <h1>Novos Serviços</h1>
+
       <main>
         <NewServiceForm onSubmit={handleNewService}>
           <h2>Cadastre um novo serviço</h2>

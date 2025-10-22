@@ -2,21 +2,19 @@ import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
 
 export const HeaderContainer = styled.header`
-  height: 10rem;
+  height: 12.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.4rem;
-  border: 1px solid #000;
+  padding: 1.6rem;
+  border-bottom: 3px solid ${({theme}) => theme.colors.gold};
 
-  h1 {
-    font-size: 2.4rem;
+  img {
+    width: 12.0rem;
+    height: 12.0rem;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
     justify-content: center;
-    h1 {
-      font-size: 2.2rem;
-    }
   }
 `;

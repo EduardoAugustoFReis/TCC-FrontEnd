@@ -7,7 +7,7 @@ export const ClientDashboardContainer = styled.div`
   padding: 1.5rem;
 
   .appointment-card {
-    background: #fff;
+    background: ${({ theme }) => theme.colors.white};
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 1rem 1.2rem;
@@ -16,16 +16,17 @@ export const ClientDashboardContainer = styled.div`
     h4 {
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
-      color: #333;
+      color: ${({ theme }) => theme.colorsAppointment.greyAppointmentCard};
     }
 
     p {
       margin: 0.3rem 0;
-      color: #555;
+      color: ${({ theme }) => theme.colorsAppointment.greyAppointmentCard};
+
       font-size: 1.4rem;
 
       strong {
-        color: #222;
+        color: ${({ theme }) => theme.colorsAppointment.strongAppointmentCard};
       }
     }
 
@@ -37,16 +38,16 @@ export const ClientDashboardContainer = styled.div`
       display: inline-block;
 
       &.pending {
-        background: #fff3cd;
-        color: #ebc908ff;
+        background: ${({ theme }) => theme.colorsAppointment.pendingBackground};
+        color: ${({ theme }) => theme.colorsAppointment.pendingColor};
       }
       &.confirmed {
-        background: #d4edda;
-        color: #2aa847ff;
+        background: ${({ theme }) => theme.colorsAppointment.confirmedBackground};
+        color: ${({ theme }) => theme.colorsAppointment.confirmedColor};
       }
       &.canceled {
-        background: #f8d7da;
-        color: #9a1d2aff;
+        background: ${({ theme }) => theme.colorsAppointment.canceledBackground};
+        color: ${({ theme }) => theme.colorsAppointment.canceledColor};
       }
     }
 
@@ -54,12 +55,13 @@ export const ClientDashboardContainer = styled.div`
       margin-top: 0.5rem;
       padding: 0.8rem;
       border-radius: 0.8rem;
-      background-color: #d82739ff;
-      color: #fff;
+      background: ${({ theme }) => theme.colorsAppointment.cancelAppointmentButton};
+      color: ${({ theme }) => theme.colors.white};
+
       border: none;
 
       &:hover {
-        background-color: #9a1d2aff;
+        background: ${({ theme }) => theme.colorsAppointment.cancelAppointmentButtonHover};
       }
     }
   }
