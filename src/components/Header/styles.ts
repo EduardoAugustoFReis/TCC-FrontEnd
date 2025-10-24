@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem;
+  padding: 2rem;
   border-bottom: 3px solid ${({theme}) => theme.colors.gold};
 
   img {
@@ -16,5 +16,21 @@ export const HeaderContainer = styled.header`
 
   @media (max-width: ${breakpoints.mobile}) {
     justify-content: center;
+  }
+`;
+
+export const DivLogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: ${({theme}) => theme.colors.lightGold};
+  font-weight: 700;
+  > p{
+    font-family: 'bookman old style' ;
+    text-transform: uppercase;
+    height: 80px;
+    line-height: 84px;
+    transform: scaleY(1.7); 
+    transform-origin: center;
   }
 `;

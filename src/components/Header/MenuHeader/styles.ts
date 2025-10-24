@@ -52,15 +52,18 @@ export const MenuHeaderContainer = styled.nav<{ $open: boolean }>`
     transform: ${({ $open }) =>
       $open ? "translateX(0)" : "translateX(-100%)"};
   }
-
+    
   button {
     margin-top: 1rem;
     width: 100%;
-    font-size: 1.6rem;
-    background: ${({ theme }) => theme.colors.whitePosca};
-    color: ${({ theme }) => theme.colors.jetBlack};
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    border-radius: 0.8rem;
+    font-size: 1.8rem;
+    background: none;
+    color: ${({ theme }) => theme.colors.gold};
+    border: none;
+    border-radius: 0;
+      &:hover{
+        transform: scale(1.1);
+      }
   }
 
  
