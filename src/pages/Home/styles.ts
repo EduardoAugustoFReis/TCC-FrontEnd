@@ -40,6 +40,7 @@ export const CarouselHomeContainer = styled.section`
   justify-content: center;
   align-items: center;
   margin: 2rem 0rem;
+  margin-bottom: -10rem;
 
   @media (max-width: ${breakpoints.mobile}) {
     

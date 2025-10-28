@@ -5,8 +5,7 @@ export const SectionHomeContainer = styled.section`
   flex-direction: column;
   gap: 0.5rem;
   margin: 1.0rem 0rem;
-  border: 3px solid ${({theme}) => theme.colors.gold};
-  border-radius: 0.8rem;
+  border-bottom: 2px solid ${({theme}) => theme.colors.gold};
   padding: 1.2rem;
 
   h2 {

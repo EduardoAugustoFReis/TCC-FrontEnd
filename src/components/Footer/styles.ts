@@ -7,7 +7,7 @@ export const FooterContainer = styled.div`
   padding: 1.6rem;
   height: 12.5rem;
   border-top: 3px solid ${({theme}) => theme.colors.gold};
-
+  background-color: ${({ theme }) => theme.colors.darkJetBlack};
 
   img {
     width: 12.0rem;

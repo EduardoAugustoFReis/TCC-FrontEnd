@@ -6,6 +6,7 @@ export const AppointmentContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 1.2rem;
+
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
   }

@@ -5,17 +5,20 @@ export const UserDataSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0.8rem;
+  padding: 1.6rem;
   width: fit-content;
-  border-radius: 0.8rem;
-  border: 5px solid ${({ theme }) => theme.colors.gold};
-  background-color: ${({ theme }) => theme.colors.whitePosca};
+  border-radius: 1rem 5rem 5rem 1rem;
+  border: 3px solid ${({ theme }) => theme.colors.gold};
+  background-color: ${({ theme }) => theme.colors.greyPosca};
+  box-shadow: 0px 6px 10px 7px rgba(0, 0, 0, 0.22);
 
   img {
     border-radius: 50%;
-    border: 2px solid ${({ theme }) => theme.colors.gold};
+    border: 2px solid ${({ theme }) => theme.colors.white};
+    outline: 3px solid ${({ theme }) => theme.colors.gold};
     height: 15rem;
     width: 15rem;
+    margin: 1rem;
   }
   
   h2 {

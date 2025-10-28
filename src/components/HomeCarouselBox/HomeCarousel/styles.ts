@@ -18,8 +18,8 @@ export const HomeCarouselContainer = styled.div`
     min-width: 40.0rem;
 
     img {
-      height: 90%;
-      width: 100%;
+      height: 75%;
+      width: 95%;
       border-radius: 0.8rem;
       pointer-events: none;
     }

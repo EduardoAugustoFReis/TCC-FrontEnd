@@ -5,7 +5,7 @@ const GreetingSection = () => {
     <GreetingSectionContainer>
       <h2>Barbearia virtual</h2>
       <p>Venha conhecer nossos serviços e profissionais</p>
-      <p>Agende já o seu corte.</p>
+      <p>Agende já o seu corte!</p>
     </GreetingSectionContainer>
   );
 };

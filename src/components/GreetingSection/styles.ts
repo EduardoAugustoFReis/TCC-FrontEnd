@@ -12,6 +12,7 @@ export const GreetingSectionContainer = styled.section`
   h2 {
     font-size: 3.2rem;
     color: ${({ theme }) => theme.colors.gold};
+    font-family: 'bookman old style' ;
   }
 
   p {

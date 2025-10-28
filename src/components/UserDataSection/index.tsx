@@ -17,7 +17,7 @@ const UserDataSection = () => {
           }
           alt={`Avatar de ${user?.name}`}
         />
-        <h2>Bem vindo! {user?.name}</h2>
+        <h2>Bem vindo, {user?.name}!</h2>
       </div>
       
       <h3>Seus dados cadastrados:</h3>
