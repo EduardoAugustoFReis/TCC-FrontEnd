@@ -20,46 +20,66 @@ export const AppointmentForm = styled.form`
   width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding: 1.2rem;
-  background-color: ${({ theme }) => theme.colors.whitePosca};
-  border-radius: 0.8rem;
+  background-color: ${({ theme }) => theme.colors.jetBlack};
+  /* border-radius: 0.8rem; */
   
   label {
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
     font-size: 1.6rem;
     font-weight: bold;
+    margin-top: 3rem;
   }
 
   select {
     padding: 0.8rem;
-    border-radius: 0.8rem;
+    /* border-radius: 0.8rem; */
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
+    background-color: ${({ theme }) => theme.colors.jetBlack};
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gold};
+    outline: none;
+    cursor: pointer;
 
     option {
-      color: ${({ theme }) => theme.colors.jetBlack};
+      color: ${({ theme }) => theme.colors.whitePosca};
     }
   }
 
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
+
   input {
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
+    background-color: ${({ theme }) => theme.colors.jetBlack};
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gold};
+    outline: none;
     text-align: center;
     padding: 0.8rem;
-    border-radius: 0.8rem;
+    /* border-radius: 0.8rem; */
     font-size: 1.4rem;
+    cursor: pointer;
   }
 
   button {
     font-size: 1.6rem;
+    font-weight: 700;
     padding: 1.2rem;
-    border-radius: 0.8rem;
+    margin-top: 2rem;
+    border-radius: 1.5rem;
     border: none;
-    transition: background-color 0.3s ease;
+    outline: none;
+    transition: 0.2s ease;
     color: ${({ theme }) => theme.colors.whitePosca};
-    background-color: ${({ theme }) => theme.colors.jetBlack};
+    background-color: ${({ theme }) => theme.colors.darkJetBlack};
+    /* border: 1px solid ${({ theme }) => theme.colors.gold}; */
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      background-color: ${({ theme }) => theme.colors.greySico};
+      color: ${({ theme }) => theme.colors.whitePosca};
     }
   }
 
@@ -104,7 +124,7 @@ export const AppointmentForm = styled.form`
 
 export const TimeSelect = styled.select`
   padding: 0.8rem;
-  border-radius: 0.8rem;
+  /* border-radius: 0.8rem; */
   font-size: 1.4rem;
 
   option {

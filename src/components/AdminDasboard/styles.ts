@@ -5,6 +5,8 @@ export const AdminDashboardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
+
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 2.0rem;
