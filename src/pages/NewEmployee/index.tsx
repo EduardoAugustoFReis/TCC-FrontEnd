@@ -69,6 +69,7 @@ const NewEmployee = () => {
         <Input
           id="none"
           label="Nome"
+          placeholder="Digite o nome do funcionário"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -76,6 +77,7 @@ const NewEmployee = () => {
         <Input
           id="email"
           label="E-mail"
+          placeholder="Digite o e-mail do funcionário"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -83,6 +85,7 @@ const NewEmployee = () => {
         <Input
           id="password"
           label="Senha"
+          placeholder="Digite a senha do funcionário"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -90,6 +93,7 @@ const NewEmployee = () => {
         <Input
           id="phone"
           label="Phone"
+          placeholder="Digite o telefone do funcionário"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />

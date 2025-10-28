@@ -3,7 +3,7 @@ import { breakpoints } from "../../styles/breakpoints";
 
 export const NewServiceContainer = styled.div`
   padding: 1.2rem;
- 
+
   h1 {
     text-align: center;
     font-size: 2.8rem;
@@ -17,6 +17,17 @@ export const NewServiceContainer = styled.div`
 
     &:hover {
       color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    h1 {
+      margin-top: 1.6rem;
+      font-size: 2.4rem;
+    }
+
+    a {
+      font-size: 1.4rem;
     }
   }
 `;

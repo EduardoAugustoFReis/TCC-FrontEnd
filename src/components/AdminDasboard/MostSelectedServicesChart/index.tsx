@@ -30,8 +30,8 @@ export default function MostSelectedServicesChart({ appointments }: MostSelected
   }
 
   return (
-    <div style={{ width: "100%", height: 320 }}>
-      <h3 style={{ textAlign: "center", marginBottom: "1rem", fontSize: "2.0rem", color: theme.colors.whitePosca }}>
+    <div style={{ width: "100%", height: 220 }}>
+      <h3 style={{ textAlign: "center", paddingTop: "1.0rem", fontSize: "1.6rem", color: theme.colors.whitePosca }}>
         Serviços mais selecionados
       </h3>
       <ResponsiveContainer>
