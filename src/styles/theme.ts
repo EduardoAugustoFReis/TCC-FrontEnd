@@ -21,10 +21,11 @@ export const theme = {
     pendingColor: "#ebc908ff",
     confirmedBackground: "#d4edda;",
     confirmedColor: "#2aa847ff",
+    confirmedColorHover: "#218c3aff",
     canceledBackground: "#f8d7da",
     canceledColor: "#9a1d2aff",
     cancelAppointmentButton: "#d82739ff",
-    cancelAppointmentButtonHover: "#9a1d2aff",
+    cancelAppointmentButtonHover: "#b72130ff",
   },
 };
 

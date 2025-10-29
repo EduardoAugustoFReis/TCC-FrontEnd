@@ -14,7 +14,7 @@ export const BarberCardContainer = styled.div`
     background-color:  ${({ theme }) => theme.colors.jetBlack};
     /* border: 1px solid ${({ theme }) => theme.colors.white}; */
     border-radius: 2.5rem 2.5rem 0.5rem 0.5rem;
-    box-shadow: 0px 6px 10px 7px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 6px 10px 7px rgba(0, 0, 0, 0.32);
     /* border-radius: 2.5rem 2.5rem 0.5rem 0.5rem;
     border: 2px solid ${({ theme }) => theme.colors.darkgold};
     box-shadow: 0px 0px 10px 7px rgba(168, 152, 9, 0.27); */
