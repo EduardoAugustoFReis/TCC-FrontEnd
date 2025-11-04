@@ -29,16 +29,16 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   return (
     <ServiceCardContainer>
       <div className="serviceCard">
-        {user?.role === "admin" && (
-          <button onClick={handleDeleteService} className="trashButton">
-            <FaRegTrashCan />
-          </button>
-        )}
         <div className="textBox">
           <h3>{service.name}</h3>
           <p>Preço: R$ {service.price}</p>
           <p>Duração: {service.duration} minutos</p>
         </div>
+        {user?.role === "admin" && (
+          <button onClick={handleDeleteService} className="trashButton">
+            <FaRegTrashCan />
+          </button>
+        )}
       </div>
     </ServiceCardContainer>
   );

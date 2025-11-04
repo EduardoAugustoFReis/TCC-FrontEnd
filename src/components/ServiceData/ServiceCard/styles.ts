@@ -25,20 +25,36 @@ export const ServiceCardContainer = styled.div`
   }
 
   .trashButton {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: transparent;
-    border: none;
+    /* position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem; */
+    background: ${({ theme }) => theme.colors.greyPosca};
+    border: 2px solid ${({ theme }) => theme.colors.greyPosca};
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .4rem;
+    width: 100%;
     cursor: pointer;
     font-size: 1.8rem;
 
-    svg {
-      color: ${({ theme }) => theme.colors.jetBlack};
-
-      &:hover {
-        color: ${({ theme }) => theme.colors.gold};
+    &:hover {
+      background: ${({ theme }) => theme.colors.danger};
+      border: 2px solid ${({ theme }) => theme.colors.danger};
+      /* transform: scale(1.04); */
+      transition: .2s ease;
       }
+
+    svg {
+      color: ${({ theme }) => theme.colors.black};
+      /* margin: .8rem; */
+
+      /* &:hover {
+        color: ${({ theme }) => theme.colors.danger};
+        transform: scale(1.15);
+        transition: .1s ease;
+      } */
     }
   }
 
