@@ -20,17 +20,33 @@ const NewEmployee = () => {
   ) => {
     e.preventDefault();
 
-    if (!role) {
-      alert("Selecione uma função antes de enviar!");
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !phone.trim() ||
+      !role
+    ) {
+      alert("Preencha todos os campos obrigatórios");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("E-mail inválido");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("A senha deve ter no mínimo 6 caracteres");
       return;
     }
 
     try {
       const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
+      formData.append("name", name.trim());
+      formData.append("email", email.trim());
       formData.append("password", password);
-      formData.append("phone", phone);
+      formData.append("phone", phone.trim());
       formData.append("role", role);
 
       if (avatar) {
@@ -51,7 +67,7 @@ const NewEmployee = () => {
       setPassword("");
       setPhone("");
       setRole("");
-      setAvatar(null);  
+      setAvatar(null);
       navigate("/home");
     } catch (error) {
       console.log("Erro ao cadastrar novo funcionário.", error);
@@ -112,7 +128,18 @@ const NewEmployee = () => {
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 
-        <button type="submit">Cadastrar</button>
+        <button
+          type="submit"
+          disabled={
+            !name.trim() ||
+            !email.trim() ||
+            !password.trim() ||
+            !phone.trim() ||
+            !role
+          }
+        >
+          Cadastrar
+        </button>
       </NewEmployeeForm>
     </NewEmployeeContainer>
   );

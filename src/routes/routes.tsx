@@ -8,6 +8,7 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import NewEmployee from "../pages/NewEmployee";
 import NewService from "../pages/NewService";
 import MyAccount from "../pages/MyAccount";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
           { path: "/my-account", element: <MyAccount /> },
         ],
       },
+
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
