@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { api } from "../../services/api";
 import type { IAppointment } from "../../types";
 import AppointmentSection from "../../components/AppointmentSection";
@@ -25,7 +25,7 @@ const Home = () => {
   const { user } = useAuth();
   const [appointments, setAppointments] = useState<IAppointment[]>([]);
 
-  const fetchAppointments = async () => {
+  const fetchAppointments = useCallback(async () => {
     try {
       let response;
       if (user?.role === "cliente") {
@@ -39,13 +39,13 @@ const Home = () => {
     } catch (error) {
       console.log("Erro ao buscar compromissos", error);
     }
-  };
+  }, [user?.role]);
 
   useEffect(() => {
     if (user) {
       fetchAppointments();
     }
-  }, [user?.role]);
+  }, [user, fetchAppointments]);
 
   return (
     <HomerContainer>
@@ -74,18 +74,18 @@ const Home = () => {
 
         {user?.role === "admin" && (
           <SectionHome title="Dados sobre a barbearia">
-            <AdminDashboard appointments={appointments}/>
+            <AdminDashboard appointments={appointments} />
           </SectionHome>
         )}
 
         {(user?.role === "cliente" || user?.role === "barbeiro") && (
-            <SectionHome title="Seus horários marcados">
-              <ScheduledTimes
-                fetchAppointments={fetchAppointments}
-                appointments={appointments}
-              />
-            </SectionHome>
-          )}
+          <SectionHome title="Seus horários marcados">
+            <ScheduledTimes
+              fetchAppointments={fetchAppointments}
+              appointments={appointments}
+            />
+          </SectionHome>
+        )}
       </MainHomeContent>
       <Footer />
     </HomerContainer>
