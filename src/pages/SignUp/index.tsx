@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Background, SignUpContainer, SignUpForm, WrapperLoginAndLink } from "./styles";
+import {
+  Background,
+  SignUpContainer,
+  SignUpForm,
+  WrapperLoginAndLink,
+} from "./styles";
 import Input from "../../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
-
-
 
 interface ISignUpResponse {
   id: number;
@@ -24,14 +27,30 @@ const SignUp = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!name.trim() || !email.trim() || !password.trim() || !phone.trim()) {
+      alert("Preencha todos os campos");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("E-mail inválido");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("A senha deve ter no mínimo 6 caracteres");
+      return;
+    }
+
     try {
-      const response = await api.post<ISignUpResponse>("/users", {
-        name,
-        email,
+      await api.post<ISignUpResponse>("/users", {
+        name: name.trim(),
+        email: email.trim(),
         password,
-        phone,
+        phone: phone.trim(),
       });
-      console.log(response);
+
       alert("Cadastro realizado com sucesso!");
       setName("");
       setEmail("");
@@ -40,6 +59,7 @@ const SignUp = () => {
 
       navigate("/");
     } catch (error) {
+      alert("Erro ao cadastrar usuário");
       console.log("Erro ao cadastrar usuário", error);
     }
   };
@@ -81,12 +101,16 @@ const SignUp = () => {
             onChange={(e) => setPhone(e.target.value)}
           />
 
-          <button type="submit">Criar conta</button>
+          <button
+            type="submit"
+            disabled={!name || !email || !password || !phone}
+          >
+            Criar conta
+          </button>
         </SignUpForm>
         <Link to="/">Voltar para o login</Link>
       </WrapperLoginAndLink>
       <Background />
-
     </SignUpContainer>
   );
 };

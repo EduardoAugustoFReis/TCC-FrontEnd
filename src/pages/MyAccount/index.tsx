@@ -15,21 +15,40 @@ const MyAccount = () => {
   const [avatar, setAvatar] = useState<File | null>(null);
   const navigate = useNavigate();
 
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (
+      !name.trim() &&
+      !email.trim() &&
+      !password.trim() &&
+      !phone.trim() &&
+      !avatar
+    ) {
+      alert("Altere pelo menos um campo");
+      return;
+    }
+
+    if (email && !email.includes("@")) {
+      alert("E-mail inválido");
+      return;
+    }
+
+    if (password && password.length < 6) {
+      alert("A senha deve ter no mínimo 6 caracteres");
+      return;
+    }
+
     try {
       const formData = new FormData();
-      if (name.trim()) formData.append("name", name);
-      if (email.trim()) formData.append("email", email);
+
+      if (name.trim()) formData.append("name", name.trim());
+      if (email.trim()) formData.append("email", email.trim());
       if (password.trim()) formData.append("password", password);
-      if (phone.trim()) formData.append("phone", phone);
+      if (phone.trim()) formData.append("phone", phone.trim());
+      if (avatar) formData.append("avatar", avatar);
 
-      if (avatar) {
-        formData.append("avatar", avatar);
-      }
-
-      const { data: updatedUser } = await api.put(`/users`, formData, {
+      const { data: updatedUser } = await api.put("/users", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -40,7 +59,8 @@ const MyAccount = () => {
       localStorage.setItem("user", JSON.stringify(updatedUser));
       navigate("/home");
     } catch (error) {
-      console.log("Erro ao atulizar usuário", error);
+      alert("Erro ao atualizar os dados");
+      console.log("Erro ao atualizar usuário", error);
     }
   };
 
@@ -90,7 +110,18 @@ const MyAccount = () => {
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 
-        <button type="submit">Fazer alteração</button>
+        <button
+          type="submit"
+          disabled={
+            !name.trim() &&
+            !email.trim() &&
+            !password.trim() &&
+            !phone.trim() &&
+            !avatar
+          }
+        >
+          Fazer alteração
+        </button>
       </MyAccountForm>
     </MyAccountContainer>
   );

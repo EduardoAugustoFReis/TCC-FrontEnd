@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AppointmentContainer, AppointmentForm, TimeSelect } from "./styles";
 import type { IBaber, IService, ISlot } from "../../types";
 import { api } from "../../services/api";
+import { useTheme } from "styled-components";
 
 interface AppointmentSectionProps {
   onAppointmentCreated?: () => void;
@@ -10,6 +11,8 @@ interface AppointmentSectionProps {
 const AppointmentSection = ({
   onAppointmentCreated,
 }: AppointmentSectionProps) => {
+  const theme = useTheme();
+
   const [barbers, setBarbers] = useState<IBaber[]>([]);
   const [services, setServices] = useState<IService[]>([]);
   const [availableSlot, setAvailableSlot] = useState<ISlot[]>([]);
@@ -18,6 +21,8 @@ const AppointmentSection = ({
   const [selectService, setSelectService] = useState("");
   const [startTime, setStartTime] = useState("");
   const [date, setDate] = useState("");
+
+  const isSunday = Boolean(date) && new Date(`${date}T00:00:00`).getDay() === 0;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +45,10 @@ const AppointmentSection = ({
 
   useEffect(() => {
     const fetchAvailableSlots = async () => {
-      if (!selectBarber || !selectService || !date) return;
+      if (!selectBarber || !selectService || !date || isSunday) {
+        setAvailableSlot([]);
+        return;
+      }
       try {
         const response = await api.get(
           `appointments/barbers/${selectBarber}/available`,
@@ -55,7 +63,7 @@ const AppointmentSection = ({
     };
 
     fetchAvailableSlots();
-  }, [selectBarber, selectService, date]);
+  }, [selectBarber, selectService, date, isSunday]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -98,6 +106,19 @@ const AppointmentSection = ({
           onChange={(e) => setDate(e.target.value)}
         />
 
+        {isSunday && (
+          <p
+            style={{
+              color: `${theme.colorsAppointment.cancelAppointmentButton}`,
+              marginTop: "4px",
+              fontSize: "1.6rem",
+              fontWeight: 'bold',
+            }}
+          >
+            A barbearia não funciona aos domingos.
+          </p>
+        )}
+
         <label htmlFor="barber">Escolha o barbeiro: </label>
         <select
           name="barber"
@@ -139,18 +160,22 @@ const AppointmentSection = ({
           {availableSlot.map((slot, index) => {
             const start = new Date(slot.start);
             const end = new Date(slot.end);
+
             const formattedStart = start.toLocaleTimeString("pt-BR", {
+              timeZone: "America/Sao_Paulo",
               hour: "2-digit",
               minute: "2-digit",
             });
+
             const formattedEnd = end.toLocaleTimeString("pt-BR", {
+              timeZone: "America/Sao_Paulo",
               hour: "2-digit",
               minute: "2-digit",
             });
 
             return (
               <option key={index} value={slot.start}>
-                {`${formattedStart} - ${formattedEnd}`}
+                {formattedStart} - {formattedEnd}
               </option>
             );
           })}

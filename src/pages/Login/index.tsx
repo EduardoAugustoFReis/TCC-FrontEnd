@@ -9,7 +9,6 @@ import useAuth from "../../context/Auth/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -18,8 +17,10 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email || !password) {
-      return alert("Todos os campos precisam ser preenchidos");
+
+    if (!email.trim() || !password.trim()) {
+      alert("Preencha e-mail e senha");
+      return;
     }
     const { success, user } = await login(email, password);
 
@@ -32,29 +33,31 @@ const Login = () => {
 
   return (
     <LoginContainer>
-        <WrapperLoginAndLink>
-          <FormLogin onSubmit={handleSubmit}>
-            <h2>Faça seu login</h2>
-            <Input
-              label="E-mail"
-              id="email"
-              placeholder="Digite seu e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              label="Senha"
-              id="senha"
-              type="password"
-              placeholder="Digite sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Logar</button>
-          </FormLogin>
-          <Link to="/signup">Não tem uma conta? crie já</Link>
-        </WrapperLoginAndLink>
-        <Background/>
+      <WrapperLoginAndLink>
+        <FormLogin onSubmit={handleSubmit}>
+          <h2>Faça seu login</h2>
+          <Input
+            label="E-mail"
+            id="email"
+            placeholder="Digite seu e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            label="Senha"
+            id="senha"
+            type="password"
+            placeholder="Digite sua senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" disabled={!email || !password}>
+            Logar
+          </button>
+        </FormLogin>
+        <Link to="/signup">Não tem uma conta? crie já</Link>
+      </WrapperLoginAndLink>
+      <Background />
     </LoginContainer>
   );
 };

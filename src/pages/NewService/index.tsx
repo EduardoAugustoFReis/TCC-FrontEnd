@@ -19,18 +19,18 @@ const NewService = () => {
         return;
       }
 
-      if (!price || isNaN(price) || price <= 0) {
-        alert("O preço é obrigatório, e deve ser maior que zero.");
+      if (price <= 0) {
+        alert("O preço deve ser maior que zero.");
         return;
       }
 
-      if (!duration || isNaN(duration) || duration <= 0) {
-        alert("A duração é obrigatória.");
+      if (duration <= 0) {
+        alert("A duração deve ser maior que zero.");
         return;
       }
 
       const response = await api.post("/services", {
-        name,
+        name: name.trim(),
         price,
         duration,
       });
@@ -83,7 +83,12 @@ const NewService = () => {
             onChange={(e) => setDuration(Number(e.target.value))}
           />
 
-          <button type="submit">Cadastrar</button>
+          <button
+            type="submit"
+            disabled={!name.trim() || price <= 0 || duration <= 0}
+          >
+            Cadastrar
+          </button>
         </NewServiceForm>
       </main>
     </NewServiceContainer>

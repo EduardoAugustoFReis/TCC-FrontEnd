@@ -54,8 +54,8 @@ export default function StatusChart({ appointments }: StatusChartProps) {
   ].filter((item) => item.value > 0);
 
   return (
-    <div style={{ width: "100%", height: 320 }}>
-      <h3 style={{ textAlign: "center", marginBottom: "0.8rem", fontSize: "2.0rem", color: theme.colors.whitePosca }}>
+    <div style={{ width: "100%", height: 250 }}>
+      <h3 style={{ textAlign: "center", fontSize: "1.6rem", color: theme.colors.whitePosca }}>
         Status dos Agendamentos
       </h3>
       <ResponsiveContainer>
@@ -80,7 +80,7 @@ export default function StatusChart({ appointments }: StatusChartProps) {
             verticalAlign="bottom"
             height={36}
             formatter={(value) => (
-              <span style={{ color: theme.colors.whitePosca, fontSize: "1.4rem" }}>{value}</span>
+              <span style={{ color: theme.colors.whitePosca, fontSize: "1.2rem" }}>{value}</span>
             )}
           />
         </PieChart>

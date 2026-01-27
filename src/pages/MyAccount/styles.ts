@@ -3,7 +3,7 @@ import { breakpoints } from "../../styles/breakpoints";
 
 export const MyAccountContainer = styled.div`
   padding: 1.2rem;
-  
+
   h1 {
     text-align: center;
     font-size: 2.8rem;
@@ -16,6 +16,17 @@ export const MyAccountContainer = styled.div`
     color: ${({ theme }) => theme.colors.gold};
     &:hover {
       color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    h1 {
+      margin-top: 1.6rem;
+      font-size: 2.4rem;
+    }
+
+    a {
+      font-size: 1.4rem;
     }
   }
 `;
@@ -55,7 +66,7 @@ export const MyAccountForm = styled.form`
     width: 30rem;
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
 
     button {

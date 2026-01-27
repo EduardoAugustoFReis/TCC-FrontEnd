@@ -4,7 +4,7 @@ import { breakpoints } from "../../styles/breakpoints";
 export const NewEmployeeContainer = styled.div`
   padding: 1.2rem;
 
-   h1 {
+  h1 {
     text-align: center;
     font-size: 2.8rem;
     color: ${({ theme }) => theme.colors.whitePosca};
@@ -18,6 +18,17 @@ export const NewEmployeeContainer = styled.div`
       color: ${({ theme }) => theme.colors.white};
     }
   }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    h1 {
+      margin-top: 1.6rem;
+      font-size: 2.4rem;
+    }
+
+    a {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 export const NewEmployeeForm = styled.form`
@@ -28,7 +39,7 @@ export const NewEmployeeForm = styled.form`
   width: 80rem;
   margin: 1rem 0;
   border-radius: 0.8rem;
-  
+
   h2 {
     text-align: center;
     font-size: 2.4rem;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../styles/breakpoints";
 
 export const SelectNewBarberContainer = styled.div`
   display: flex;
@@ -19,6 +20,20 @@ export const SelectNewBarberContainer = styled.div`
     option {
       font-size: 1.6rem;
       color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    label {
+      font-size: 1.6rem;
+    }
+
+    select {
+      font-size: 1.4rem;
+
+      option {
+        font-size: 1.4rem;
+      }
     }
   }
 `;

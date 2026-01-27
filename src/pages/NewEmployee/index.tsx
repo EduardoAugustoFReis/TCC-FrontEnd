@@ -20,17 +20,33 @@ const NewEmployee = () => {
   ) => {
     e.preventDefault();
 
-    if (!role) {
-      alert("Selecione uma função antes de enviar!");
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !phone.trim() ||
+      !role
+    ) {
+      alert("Preencha todos os campos obrigatórios");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("E-mail inválido");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("A senha deve ter no mínimo 6 caracteres");
       return;
     }
 
     try {
       const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
+      formData.append("name", name.trim());
+      formData.append("email", email.trim());
       formData.append("password", password);
-      formData.append("phone", phone);
+      formData.append("phone", phone.trim());
       formData.append("role", role);
 
       if (avatar) {
@@ -51,7 +67,7 @@ const NewEmployee = () => {
       setPassword("");
       setPhone("");
       setRole("");
-      setAvatar(null);  
+      setAvatar(null);
       navigate("/home");
     } catch (error) {
       console.log("Erro ao cadastrar novo funcionário.", error);
@@ -69,6 +85,7 @@ const NewEmployee = () => {
         <Input
           id="none"
           label="Nome"
+          placeholder="Digite o nome do funcionário"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -76,6 +93,7 @@ const NewEmployee = () => {
         <Input
           id="email"
           label="E-mail"
+          placeholder="Digite o e-mail do funcionário"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -83,6 +101,7 @@ const NewEmployee = () => {
         <Input
           id="password"
           label="Senha"
+          placeholder="Digite a senha do funcionário"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -90,6 +109,7 @@ const NewEmployee = () => {
         <Input
           id="phone"
           label="Phone"
+          placeholder="Digite o telefone do funcionário"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
@@ -108,7 +128,18 @@ const NewEmployee = () => {
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 
-        <button type="submit">Cadastrar</button>
+        <button
+          type="submit"
+          disabled={
+            !name.trim() ||
+            !email.trim() ||
+            !password.trim() ||
+            !phone.trim() ||
+            !role
+          }
+        >
+          Cadastrar
+        </button>
       </NewEmployeeForm>
     </NewEmployeeContainer>
   );
