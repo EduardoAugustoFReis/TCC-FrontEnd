@@ -5,6 +5,7 @@ export const theme = {
     lightGold: "#c4aa56ff",
     jetBlack: "#201D1D",
     darkJetBlack: "#0c0c0cff",
+    lightJetBlack: "rgb(98, 98, 98)",
     greySico: "#2D3230",
     darkBlue: "#000e3aff",
     whitePosca: "#F6F7F9",

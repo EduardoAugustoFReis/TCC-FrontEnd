@@ -1,13 +1,17 @@
 import {
-  Background,
+  // Background,
   FormLogin,
+  ImageDiv,
   LoginContainer,
-  WrapperLoginAndLink,
+  MoustacheDiv,
+  WrapperLogin,
 } from "./styles";
 import Input from "../../components/Input";
 import useAuth from "../../context/Auth/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import backgroundImg from "../../assets/image/logo.jpg";
+import moustacheImg from "../../../public/logo-bigode-preto-trasparente.png"
 
 const Login = () => {
   const { login } = useAuth();
@@ -33,7 +37,8 @@ const Login = () => {
 
   return (
     <LoginContainer>
-      <WrapperLoginAndLink>
+      <h2>Barbearia Virtual</h2>
+      <WrapperLogin>
         <FormLogin onSubmit={handleSubmit}>
           <h2>Faça seu login</h2>
           <Input
@@ -52,12 +57,18 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" disabled={!email || !password}>
-            Logar
+            Entrar
           </button>
         </FormLogin>
-        <Link to="/signup">Não tem uma conta? crie já</Link>
-      </WrapperLoginAndLink>
-      <Background />
+          <ImageDiv>
+            <img src={backgroundImg} alt="" />
+          </ImageDiv>
+          <MoustacheDiv>
+            <img src={moustacheImg} alt="" />
+          </MoustacheDiv>
+      </WrapperLogin>
+        <Link to="/signup">Não tem uma conta? Crie agora!</Link>
+      {/* <Background /> */}
     </LoginContainer>
   );
 };

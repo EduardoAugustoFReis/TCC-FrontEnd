@@ -5,14 +5,24 @@ import backgroundImg from "../../assets/image/logo.jpg";
 export const LoginContainer = styled.div`
   height: 100vh;
   display: flex;
-  align-items: stretch;
-  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 
   a {
     font-size: 1.8rem;
     margin-top: 1rem;
     text-align: center;
     color: ${({ theme }) => theme.colors.gold};
+    font-weight: 500;
+  }
+
+  >h2 {
+    color:  ${({ theme }) => theme.colors.gold};
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    display: none;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -24,18 +34,32 @@ export const LoginContainer = styled.div`
     a {
       font-size: 1.6rem;
     }
+
+    >h2 {
+      color:  ${({ theme }) => theme.colors.gold};
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+    }
   }
 `;
 
-export const WrapperLoginAndLink = styled.div`
+export const WrapperLogin = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  margin-left: 1rem;
+  /* margin: 1rem; */
+  padding: 1rem;
+  height: 40rem;
+  background-color: ${({ theme }) => theme.colors.whitePosca};
+  max-width: 100rem;
+  border-radius: 10px;
+  gap: 1rem;
 
   @media (max-width: ${breakpoints.mobile}) {
     margin-left: 0rem;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -43,24 +67,33 @@ export const FormLogin = styled.form`
   display: flex;
   flex-direction: column;
   padding: 1.6rem;
-  width: 70rem;
-  background-color: ${({ theme }) => theme.colors.whitePosca};
+  width: 70%;
+  height: 100%;
+  justify-content: space-evenly;
   border-radius: 0.8rem;
 
   h2 {
     text-align: center;
     font-size: 2.8rem;
+    margin-bottom: 1rem;
   }
 
   button {
     margin: 0 auto;
-    margin-top: 1rem;
-    padding: 1.6rem;
+    margin-top: 2rem;
+    padding: 1.3rem;
+    outline: none;
+    border: none;
     font-size: 1.8rem;
     width: 20rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.jetBlack};
+    background-color: ${({ theme }) => theme.colors.greySico};
+    transition: .2s;
+  }
+
+  button:hover {
+    background-color: ${({ theme }) => theme.colors.darkJetBlack};
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -87,4 +120,29 @@ export const Background = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     display: none;
   }
+`;
+
+export const ImageDiv = styled.div`
+  display: flex;
+  height: 90%;
+    img{
+      width: 100%;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      display: none;
+    }
+    @media (max-width: ${breakpoints.tablet}) {
+      height: 60%;
+    }
+`;
+
+export const MoustacheDiv = styled.div`
+  display: none;
+  height: 20%;
+    img{
+      width: 100%;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      display: flex;
+    }
 `;

@@ -7,15 +7,17 @@ export const StyledInputContainer = styled.div`
   label {
     display: flex;
     flex-direction: column-reverse;
-    font-size: 2.4rem;
+    font-size: 2rem;
+    font-weight: 500;
     gap: 0.5rem;
   }
 
   input {
-    padding: 1.2rem;
-    font-size: 2.0rem;
+    padding: .8rem;
+    font-size: 1.8rem;
     background: none;
-    border-radius: 0.8rem;
+    border: none;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.lightJetBlack};
     outline: none;
   }
 
