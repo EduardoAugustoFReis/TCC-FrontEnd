@@ -14,14 +14,11 @@ export const LoginContainer = styled.div`
     font-size: 1.8rem;
     margin-top: 1rem;
     text-align: center;
-    color: ${({ theme }) => theme.colors.gold};
-    font-weight: 500;
+    color: ${({ theme }) => theme.colors.lightGold};
+    font-weight: 600;
   }
 
   >h2 {
-    color:  ${({ theme }) => theme.colors.gold};
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
     display: none;
   }
 
@@ -36,7 +33,7 @@ export const LoginContainer = styled.div`
     }
 
     >h2 {
-      color:  ${({ theme }) => theme.colors.gold};
+      color:  ${({ theme }) => theme.colors.lightGold};
       font-size: 2.4rem;
       margin-bottom: 1rem;
       display: flex;
