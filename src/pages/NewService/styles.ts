@@ -94,14 +94,5 @@ export const NewServiceForm = styled.form`
 
   @media (min-width: ${breakpoints.tablet}) {
     min-width: 70rem;
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    button {
-      font-size: 1.6rem;
-      width: 15rem;
-    }
   }
 `;
