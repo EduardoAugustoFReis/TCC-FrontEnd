@@ -26,6 +26,7 @@ export const InputFilePreviewContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0.5rem;
   }
 
   >div > p{
