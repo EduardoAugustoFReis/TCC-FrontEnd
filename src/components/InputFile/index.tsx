@@ -34,7 +34,7 @@ const InputFilePreview = ({ id, label, onChange, ...rest }: InputFilePreviewProp
         onChange={handleChange}
         {...rest}
       />
-      {preview && <img src={preview} alt={`Imagem do avatar`} />}
+      {preview && <div><p>Sua foto ficará assim:</p><img src={preview} alt={`Imagem do avatar`} /></div>}
     </InputFilePreviewContainer>
   );
 };

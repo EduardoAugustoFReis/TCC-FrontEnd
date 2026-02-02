@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
 
 export const MyAccountContainer = styled.div`
-  padding: 1.2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h1 {
     text-align: center;
@@ -11,9 +14,21 @@ export const MyAccountContainer = styled.div`
     margin-bottom: 2rem;
   }
 
+  span{
+    width: 100%;
+  }
+
   a {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    padding: 1.3rem 0 0 1.3rem;
+    width: 30%;
+    display: flex;
+    gap: .7rem;
     color: ${({ theme }) => theme.colors.gold};
+    transition: .1s;
+    svg{
+      font-size: 2.6rem;
+    }
     &:hover {
       color: ${({ theme }) => theme.colors.white};
     }
@@ -26,7 +41,11 @@ export const MyAccountContainer = styled.div`
     }
 
     a {
+      width: 60%;
       font-size: 1.4rem;
+      svg{
+        font-size: 1.9rem;
+      }
     }
   }
 `;
@@ -36,8 +55,8 @@ export const MyAccountForm = styled.form`
   display: flex;
   flex-direction: column;
   padding: 2.4rem;
-  width: 80rem;
-  margin: 1rem 0;
+  width: 100%;
+  max-width: 80rem;
   border-radius: 0.8rem;
 
   h2 {
@@ -49,17 +68,19 @@ export const MyAccountForm = styled.form`
   button {
     margin: 0 auto;
     margin-top: 1rem;
-    padding: 1.6rem;
+    padding: 1.3rem;
+    outline: none;
+    border: none;
     font-size: 1.8rem;
     width: 20rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.jetBlack};
-    border: 1px solid ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.greySico};
+    transition: .2s;
+  }
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.gold};
-    }
+  button:hover {
+    background-color: ${({ theme }) => theme.colors.darkJetBlack};
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -72,7 +93,6 @@ export const MyAccountForm = styled.form`
     button {
       font-size: 1.6rem;
       width: 15rem;
-      padding: 1.2rem;
     }
   }
 `;

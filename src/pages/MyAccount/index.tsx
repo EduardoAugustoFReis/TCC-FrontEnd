@@ -5,6 +5,7 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import useAuth from "../../context/Auth/useAuth";
 import InputFilePreview from "../../components/InputFile";
+import { MdOutlineKeyboardReturn } from "react-icons/md";
 
 const MyAccount = () => {
   const { setUser } = useAuth();
@@ -66,7 +67,7 @@ const MyAccount = () => {
 
   return (
     <MyAccountContainer>
-      <Link to={`/home`}>Voltar para a Home</Link>
+      <span><Link to={`/home`}><MdOutlineKeyboardReturn /> Voltar para a Home</Link></span>
       <h1>Minha conta</h1>
       <MyAccountForm onSubmit={handleSubmit}>
         <h2>Aqui você pode alterar seus dados</h2>
@@ -106,7 +107,7 @@ const MyAccount = () => {
 
         <InputFilePreview
           id="avatar"
-          label="Sua imagem"
+          label="Mudar foto"
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 
@@ -120,7 +121,7 @@ const MyAccount = () => {
             !avatar
           }
         >
-          Fazer alteração
+          Salvar alterações
         </button>
       </MyAccountForm>
     </MyAccountContainer>

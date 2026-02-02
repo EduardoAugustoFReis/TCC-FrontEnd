@@ -13,8 +13,25 @@ export const InputFilePreviewContainer = styled.div`
   }
 
   img {
-    max-width: 15rem;
-    border-radius: 0.8rem;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    border: 2px solid ${({ theme }) => theme.colors.white};
+    outline: 3px solid ${({ theme }) => theme.colors.gold};
+    margin: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  >div > p{
+    padding: 0 .2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
   }
 
   .buttonPreview {
@@ -23,14 +40,16 @@ export const InputFilePreviewContainer = styled.div`
     text-align: center;
 
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.jetBlack};
+    background-color: ${({ theme }) => theme.colors.greySico};
     font-size: 1.6rem;
-    padding: 0.8rem;
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    border-radius: 0.8rem;
+    padding: 0.8rem 1.3rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    transition: .2s;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.gold};
+      background-color: ${({ theme }) => theme.colors.darkJetBlack};
     }
   }
 
