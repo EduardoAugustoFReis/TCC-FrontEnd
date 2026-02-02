@@ -3,6 +3,7 @@ import { NewServiceContainer, NewServiceForm } from "./styles";
 import Input from "../../components/Input";
 import { useState } from "react";
 import { api } from "../../services/api";
+import { MdOutlineKeyboardReturn } from "react-icons/md";
 
 const NewService = () => {
   const [name, setName] = useState("");
@@ -53,7 +54,7 @@ const NewService = () => {
 
   return (
     <NewServiceContainer>
-      <Link to={`/home`}>Voltar para Home</Link>
+      <span><Link to={`/home`}><MdOutlineKeyboardReturn /> Voltar para Home</Link></span>
       <h1>Novos Serviços</h1>
 
       <main>

@@ -21,7 +21,7 @@ export const MyAccountContainer = styled.div`
   a {
     font-size: 2rem;
     padding: 1.3rem 0 0 1.3rem;
-    width: 30%;
+    width: fit-content;
     display: flex;
     gap: .7rem;
     color: ${({ theme }) => theme.colors.gold};
@@ -41,7 +41,6 @@ export const MyAccountContainer = styled.div`
     }
 
     a {
-      width: 60%;
       font-size: 1.4rem;
       svg{
         font-size: 1.9rem;
