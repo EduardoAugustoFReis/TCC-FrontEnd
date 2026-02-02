@@ -1,44 +1,77 @@
 import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
-import backgroundImg from "../../assets/image/logo.jpg";
-
 
 export const SignUpContainer = styled.div`
   height: 100vh;
   display: flex;
-  align-items: stretch;
-  gap: 1rem;
-  background-color: ${({ theme }) => theme.colors.jetBlack};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 
   a {
     font-size: 1.8rem;
     margin-top: 1rem;
     text-align: center;
-    color: ${({ theme }) => theme.colors.gold};
+    color: ${({ theme }) => theme.colors.link};
+    font-weight: 600;
+    >svg{
+      font-size: 1.4rem;
+    }
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  span{
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.lightGold};
+    font-weight: 600;
+  }
+
+  >h2 {
+    display: none;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-   flex-direction: column;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 
-    a {
+    a, span {
       font-size: 1.6rem;
+      >svg{
+        font-size: 1.2rem;
+      }
     }
 
+    >h2 {
+      color:  ${({ theme }) => theme.colors.lightGold};
+      font-size: 2.4rem;
+      margin-bottom: 0rem;
+      display: flex;
+    }
   }
 `;
 
 export const WrapperLoginAndLink = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  margin-left: 1rem;
+  padding: 3rem 1rem;
+  max-height: 55rem;
+  background-color: ${({ theme }) => theme.colors.whitePosca};
+  max-width: 100rem;
+  border-radius: 10px;
 
   @media (max-width: ${breakpoints.mobile}) {
     margin-left: 0rem;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -46,24 +79,33 @@ export const SignUpForm = styled.form`
   display: flex;
   flex-direction: column;
   padding: 1.6rem;
-  width: 70rem;
-  background-color: ${({ theme }) => theme.colors.whitePosca};
+  width: 70%;
+  height: 100%;
+  justify-content: space-evenly;
   border-radius: 0.8rem;
 
   h2 {
     text-align: center;
     font-size: 2.8rem;
+    margin-bottom: 1rem;
   }
 
   button {
     margin: 0 auto;
     margin-top: 1rem;
-    padding: 1.6rem;
+    padding: 1.3rem;
+    outline: none;
+    border: none;
     font-size: 1.8rem;
     width: 20rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.jetBlack};
+    background-color: ${({ theme }) => theme.colors.greySico};
+    transition: .2s;
+  }
+
+  button:hover {
+    background-color: ${({ theme }) => theme.colors.darkJetBlack};
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -82,12 +124,27 @@ export const SignUpForm = styled.form`
   }
 `;
 
-export const Background = styled.div`
-  flex: 1;
-  background: url(${backgroundImg}) no-repeat center center;
-  background-size: cover;
+export const ImageDiv = styled.div`
+  display: flex;
+  height: 90%;
+    img{
+      width: 100%;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      display: none;
+    }
+    @media (max-width: ${breakpoints.tablet}) {
+      height: 60%;
+    }
+`;
 
-  @media (max-width: ${breakpoints.mobile}) {
-    display: none;
-  }
+export const MoustacheDiv = styled.div`
+  display: none;
+  height: 20%;
+    img{
+      width: 100%;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      display: flex;
+    }
 `;

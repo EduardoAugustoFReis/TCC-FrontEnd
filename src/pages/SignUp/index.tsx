@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import {
-  Background,
   SignUpContainer,
   SignUpForm,
   WrapperLoginAndLink,
+  ImageDiv,
+  MoustacheDiv
 } from "./styles";
 import Input from "../../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
+import backgroundImg from "../../assets/image/logo.jpg";
+import moustacheImg from "../../../public/logo-bigode-preto-trasparente.png"
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface ISignUpResponse {
   id: number;
@@ -66,6 +70,7 @@ const SignUp = () => {
 
   return (
     <SignUpContainer>
+      <h2>Barbearia Virtual</h2>
       <WrapperLoginAndLink>
         <SignUpForm onSubmit={handleSubmit}>
           <h2>Crie sua conta</h2>
@@ -108,9 +113,14 @@ const SignUp = () => {
             Criar conta
           </button>
         </SignUpForm>
-        <Link to="/">Voltar para o login</Link>
+        <ImageDiv>
+            <img src={backgroundImg} alt="" />
+          </ImageDiv>
+          <MoustacheDiv>
+            <img src={moustacheImg} alt="" />
+          </MoustacheDiv>
       </WrapperLoginAndLink>
-      <Background />
+      <span>Já possui conta? <Link to="/">Inicie sessão! <FaExternalLinkAlt/></Link></span>
     </SignUpContainer>
   );
 };

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { breakpoints } from "../../styles/breakpoints";
-import backgroundImg from "../../assets/image/logo.jpg";
 
 export const LoginContainer = styled.div`
   height: 100vh;
@@ -11,6 +10,18 @@ export const LoginContainer = styled.div`
   padding: 1rem;
 
   a {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.link};
+    font-weight: 600;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  span{
     font-size: 1.8rem;
     margin-top: 1rem;
     text-align: center;
@@ -28,7 +39,7 @@ export const LoginContainer = styled.div`
     justify-content: center;
     gap: 1rem;
 
-    a {
+    a, span {
       font-size: 1.6rem;
     }
 
@@ -106,16 +117,6 @@ export const FormLogin = styled.form`
       width: 15rem;
       padding: 1.2rem;
     }
-  }
-`;
-
-export const Background = styled.div`
-  flex: 1;
-  background: url(${backgroundImg}) no-repeat center center;
-  background-size: cover;
-
-  @media (max-width: ${breakpoints.mobile}) {
-    display: none;
   }
 `;
 

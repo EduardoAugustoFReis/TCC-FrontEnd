@@ -1,5 +1,4 @@
 import {
-  // Background,
   FormLogin,
   ImageDiv,
   LoginContainer,
@@ -67,8 +66,7 @@ const Login = () => {
             <img src={moustacheImg} alt="" />
           </MoustacheDiv>
       </WrapperLogin>
-        <Link to="/signup">Não tem uma conta? Crie agora!</Link>
-      {/* <Background /> */}
+      <span>Não possui conta? <Link to="/signup">Crie agora!</Link></span>
     </LoginContainer>
   );
 };

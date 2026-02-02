@@ -1,5 +1,6 @@
 export const theme = {
   colors: {
+    link: "#DCDCDC",
     gold: "#D3AF37",
     darkgold: "#6c550aff",
     lightGold: "#c4aa56ff",
