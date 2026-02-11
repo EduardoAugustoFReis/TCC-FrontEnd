@@ -29,19 +29,19 @@ export const ServiceCardContainer = styled.div`
     bottom: 0.5rem;
     right: 0.5rem; */
     background: ${({ theme }) => theme.colors.greyPosca};
-    border: 2px solid ${({ theme }) => theme.colors.greyPosca};
+    border: none;
     border-radius: .5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .4rem;
+    padding: .6rem;
     width: 100%;
     cursor: pointer;
     font-size: 1.8rem;
 
     &:hover {
       background: ${({ theme }) => theme.colors.danger};
-      border: 2px solid ${({ theme }) => theme.colors.danger};
+      border: none;
       /* transform: scale(1.04); */
       transition: .2s ease;
       }

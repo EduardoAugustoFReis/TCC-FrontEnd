@@ -70,15 +70,15 @@ export const AppointmentForm = styled.form`
     font-weight: 700;
     padding: 1.2rem;
     margin-top: 2rem;
-    border-radius: 1.5rem;
+    border-radius: .5rem;
     border: none;
     outline: none;
     transition: 0.2s ease;
     color: ${({ theme }) => theme.colors.whitePosca};
-    background-color: ${({ theme }) => theme.colors.darkJetBlack};
+    background-color: ${({ theme }) => theme.colors.lightJetBlack};
     /* border: 1px solid ${({ theme }) => theme.colors.gold}; */
     &:hover {
-      background-color: ${({ theme }) => theme.colors.greySico};
+      background-color: ${({ theme }) => theme.colors.lightJetBlackHover};
       color: ${({ theme }) => theme.colors.whitePosca};
     }
   }

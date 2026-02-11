@@ -50,7 +50,6 @@ export const NewServiceContainer = styled.div`
 `;
 
 export const NewServiceForm = styled.form`
-  background-color: ${({ theme }) => theme.colors.whitePosca};
   display: flex;
   flex-direction: column;
   padding: 2.4rem;
@@ -61,7 +60,7 @@ export const NewServiceForm = styled.form`
   h2 {
     text-align: center;
     font-size: 2.4rem;
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
   }
 
   button {
@@ -70,12 +69,15 @@ export const NewServiceForm = styled.form`
     padding: 1.3rem;
     font-size: 1.8rem;
     width: 20rem;
+    border: none;
+    outline: none;
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.greySico};
+    background-color: ${({ theme }) => theme.colors.lightJetBlack};
+    transition: .2s;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.darkJetBlack};
+      background-color: ${({ theme }) => theme.colors.lightJetBlackHover};
     }
   }
 

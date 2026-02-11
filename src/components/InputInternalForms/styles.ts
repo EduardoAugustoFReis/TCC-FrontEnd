@@ -1,0 +1,37 @@
+import styled from "styled-components";
+import { breakpoints } from "../../styles/breakpoints";
+
+export const StyledInputContainer = styled.div`
+  margin: 1.0rem 0rem;
+
+  label {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 2rem;
+    font-weight: 500;
+    gap: 0.5rem;
+    color:  ${({ theme }) => theme.colors.whitePosca};
+  }
+
+  input {
+    padding: .8rem;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.gold};
+    outline: none;
+    color:  ${({ theme }) => theme.colors.whitePosca};
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+
+    label {
+      font-size: 1.8em;
+    }
+
+    input {
+      padding: 0.8rem;
+      font-size: 1.6rem;
+    }
+  }
+`;

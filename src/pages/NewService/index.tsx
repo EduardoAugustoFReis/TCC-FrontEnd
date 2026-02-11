@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { NewServiceContainer, NewServiceForm } from "./styles";
-import Input from "../../components/Input";
+import InputInternalForms from "../../components/InputInternalForms";
 import { useState } from "react";
 import { api } from "../../services/api";
 import { MdOutlineKeyboardReturn } from "react-icons/md";
@@ -60,14 +60,14 @@ const NewService = () => {
       <main>
         <NewServiceForm onSubmit={handleNewService}>
           <h2>Cadastre um novo serviço</h2>
-          <Input
+          <InputInternalForms
             id="name"
             label="Nome:"
             placeholder="Digite o nome do serviço"
             value={name}
             onChange={(e) => setName(capitalizeFirst(e.target.value))}
           />
-          <Input
+          <InputInternalForms
             id="price"
             label="Preço:"
             type="number"
@@ -75,7 +75,7 @@ const NewService = () => {
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
           />
-          <Input
+          <InputInternalForms
             id="duration"
             label="Duração em minutos:"
             type="number"

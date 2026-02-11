@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { NewEmployeeContainer, NewEmployeeForm } from "./styles";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../../components/Input";
+import InputInternalForms from "../../components/InputInternalForms";
 import SelectNewBarber from "../../components/SelectNewBarber";
 import { api } from "../../services/api";
 import InputFilePreview from "../../components/InputFile";
+import { MdOutlineKeyboardReturn } from "react-icons/md";
 
 const NewEmployee = () => {
   const [name, setName] = useState("");
@@ -77,12 +78,12 @@ const NewEmployee = () => {
 
   return (
     <NewEmployeeContainer>
-      <Link to="/home">Voltar para a Home</Link>
+      <span><Link to={`/home`}><MdOutlineKeyboardReturn /> Voltar para a Home</Link></span>
       <h1>Novos Funcionários</h1>
 
       <NewEmployeeForm onSubmit={handleNewEmployeeSubmit}>
         <h2>Cadastre um novo Funcionário</h2>
-        <Input
+        <InputInternalForms
           id="none"
           label="Nome"
           placeholder="Digite o nome do funcionário"
@@ -90,7 +91,7 @@ const NewEmployee = () => {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <Input
+        <InputInternalForms
           id="email"
           label="E-mail"
           placeholder="Digite o e-mail do funcionário"
@@ -98,7 +99,7 @@ const NewEmployee = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <Input
+        <InputInternalForms
           id="password"
           label="Senha"
           placeholder="Digite a senha do funcionário"
@@ -106,7 +107,7 @@ const NewEmployee = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Input
+        <InputInternalForms
           id="phone"
           label="Phone"
           placeholder="Digite o telefone do funcionário"

@@ -50,7 +50,6 @@ export const MyAccountContainer = styled.div`
 `;
 
 export const MyAccountForm = styled.form`
-  background-color: ${({ theme }) => theme.colors.whitePosca};
   display: flex;
   flex-direction: column;
   padding: 2.4rem;
@@ -61,7 +60,7 @@ export const MyAccountForm = styled.form`
   h2 {
     text-align: center;
     font-size: 2.4rem;
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
   }
 
   button {
@@ -74,12 +73,12 @@ export const MyAccountForm = styled.form`
     width: 20rem;
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.greySico};
+    background-color: ${({ theme }) => theme.colors.lightJetBlack};
     transition: .2s;
   }
 
   button:hover {
-    background-color: ${({ theme }) => theme.colors.darkJetBlack};
+    background-color: ${({ theme }) => theme.colors.lightJetBlackHover};
   }
 
   @media (max-width: ${breakpoints.mobile}) {

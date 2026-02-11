@@ -6,15 +6,9 @@ export const ClientDashboardContainer = styled.div`
   gap: 1rem;
   padding: .5rem 1.5rem;
 
-  /* .appointment-card:last-child {
-    border: none;
-  } */
-
   .appointment-card {
     background-color: ${({ theme }) => theme.colors.jetBlack};
     border: 2px solid ${({ theme }) => theme.colors.greySico};
-    /* border-bottom: 2px solid ${({ theme }) => theme.colors.whitePosca}; */
-    /* border-radius: 12px; */
     padding: 1.8rem 2rem;
     box-shadow: -5px 2px 10px 8px rgba(0, 0, 0, 0.24);
 
@@ -65,11 +59,10 @@ export const ClientDashboardContainer = styled.div`
       font-weight: bold;
 
       border: none;
-      transition: .1s ease;
+      transition: .2s ease;
 
       &:hover {
         background: ${({ theme }) => theme.colorsAppointment.cancelAppointmentButtonHover};
-        /* transform: scale(1.05); */
       }
     }
   }

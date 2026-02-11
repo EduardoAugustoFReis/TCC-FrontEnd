@@ -70,7 +70,7 @@ export const BarberDashboardContainer = styled.div`
 
       .confirm {
         color: #ffffffff;
-        background: #2aa847ff;
+        background: ${({ theme }) => theme.colorsAppointment.confirmedColor};
         
         &:hover {
           background: ${({ theme }) => theme.colorsAppointment.confirmedColorHover};
@@ -78,7 +78,7 @@ export const BarberDashboardContainer = styled.div`
       }
 
       .cancel {
-        background: #c32532ff;
+        background: ${({ theme }) => theme.colorsAppointment.cancelAppointmentButton};
         color: #ffffffff;
 
         &:hover {

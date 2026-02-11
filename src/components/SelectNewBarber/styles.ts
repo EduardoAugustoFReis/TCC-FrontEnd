@@ -8,18 +8,23 @@ export const SelectNewBarberContainer = styled.div`
 
   label {
     font-size: 1.8rem;
-    color: ${({ theme }) => theme.colors.jetBlack};
+    color: ${({ theme }) => theme.colors.whitePosca};
   }
+
   select {
     cursor: pointer;
     font-size: 1.6rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     padding: 0.8rem;
-    background-color: ${({ theme }) => theme.colors.jetBlack};
+    border: none;
+    outline: none;
+    background-color: ${({ theme }) => theme.colors.lightJetBlack};
     color: ${({ theme }) => theme.colors.white};
+    transition: .2s;
     option {
       font-size: 1.6rem;
       color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.lightJetBlack};
     }
   }
 

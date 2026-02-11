@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { MyAccountContainer, MyAccountForm } from "./styles";
-import Input from "../../components/Input";
+import InputInternalForms from "../../components/InputInternalForms";
 import { useState } from "react";
 import { api } from "../../services/api";
 import useAuth from "../../context/Auth/useAuth";
@@ -71,14 +71,14 @@ const MyAccount = () => {
       <h1>Minha conta</h1>
       <MyAccountForm onSubmit={handleSubmit}>
         <h2>Aqui você pode alterar seus dados</h2>
-        <Input
+        <InputInternalForms
           label="Nome:"
           id="name"
           placeholder="Digite seu novo nome"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <Input
+        <InputInternalForms
           label="Email:"
           id="email"
           type="email"
@@ -87,7 +87,7 @@ const MyAccount = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <Input
+        <InputInternalForms
           label="Senha:"
           type="password"
           id="password"
@@ -96,7 +96,7 @@ const MyAccount = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Input
+        <InputInternalForms
           label="Telefone"
           type="phone"
           id="phone"
@@ -107,7 +107,7 @@ const MyAccount = () => {
 
         <InputFilePreview
           id="avatar"
-          label="Mudar foto"
+          label="Alterar foto"
           onChange={(e) => setAvatar(e.target.files?.[0] || null)}
         />
 

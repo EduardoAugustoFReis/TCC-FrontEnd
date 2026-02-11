@@ -33,6 +33,7 @@ export const InputFilePreviewContainer = styled.div`
     padding: 0 .2rem;
     font-size: 1.6rem;
     font-weight: 500;
+    color:  ${({ theme }) => theme.colors.whitePosca};
   }
 
   .buttonPreview {
@@ -41,8 +42,9 @@ export const InputFilePreviewContainer = styled.div`
     text-align: center;
 
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.greySico};
+    background-color: ${({ theme }) => theme.colors.lightJetBlack};
     font-size: 1.6rem;
+    font-weight: 500;
     padding: 0.8rem 1.3rem;
     border-radius: 0.5rem;
     outline: none;
@@ -50,7 +52,7 @@ export const InputFilePreviewContainer = styled.div`
     transition: .2s;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.darkJetBlack};
+      background-color: ${({ theme }) => theme.colors.lightJetBlackHover};
     }
   }
 

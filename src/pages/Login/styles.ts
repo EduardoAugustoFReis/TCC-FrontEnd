@@ -69,6 +69,12 @@ export const WrapperLogin = styled.div`
     margin-left: 0rem;
     flex-direction: column-reverse;
   }
+    
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-left: 0rem;
+    max-width: 80rem;
+    min-width: 0rem;
+  }
 `;
 
 export const FormLogin = styled.form`
@@ -122,8 +128,11 @@ export const FormLogin = styled.form`
 
 export const ImageDiv = styled.div`
   display: flex;
-  height: 90%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
     img{
+      height: 80%;
       width: 100%;
     }
     @media (max-width: ${breakpoints.mobile}) {

@@ -67,11 +67,19 @@ export const WrapperLoginAndLink = styled.div`
   max-height: 55rem;
   background-color: ${({ theme }) => theme.colors.whitePosca};
   max-width: 100rem;
+  min-width: 80rem;
   border-radius: 10px;
 
   @media (max-width: ${breakpoints.mobile}) {
     margin-left: 0rem;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; 
+    min-width: 0rem;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    margin-left: 0rem;
+    max-width: 80rem;
+    min-width: 0rem;
   }
 `;
 
@@ -126,8 +134,11 @@ export const SignUpForm = styled.form`
 
 export const ImageDiv = styled.div`
   display: flex;
-  height: 90%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
     img{
+      height: 80%;
       width: 100%;
     }
     @media (max-width: ${breakpoints.mobile}) {
