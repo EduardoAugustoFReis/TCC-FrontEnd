@@ -36,7 +36,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
         {user?.role === "admin" && (
           <button onClick={handleDeleteService} className="trashButton">
-            <FaRegTrashCan />
+            Excluir
           </button>
         )}
       </div>

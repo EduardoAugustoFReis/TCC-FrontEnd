@@ -38,16 +38,18 @@ export const ServiceCardContainer = styled.div`
     width: 100%;
     cursor: pointer;
     font-size: 1.8rem;
+    font-weight: 500;
 
     &:hover {
       background: ${({ theme }) => theme.colors.danger};
       border: none;
       /* transform: scale(1.04); */
       transition: .2s ease;
+      color: ${({ theme }) => theme.colors.whitePosca};
       }
 
     svg {
-      color: ${({ theme }) => theme.colors.black};
+      /* color: ${({ theme }) => theme.colors.black}; */
       /* margin: .8rem; */
 
       /* &:hover {
