@@ -23,6 +23,7 @@ const AppointmentSection = ({
   const [date, setDate] = useState("");
 
   const isSunday = Boolean(date) && new Date(`${date}T00:00:00`).getDay() === 0;
+  let isPast = Boolean(startTime) && new Date(startTime) < new Date();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -116,6 +117,19 @@ const AppointmentSection = ({
             }}
           >
             A barbearia não funciona aos domingos.
+          </p>
+        )}
+
+        {isPast && (
+          <p
+            style={{
+              color: `${theme.colorsAppointment.cancelAppointmentButton}`,
+              marginTop: "4px",
+              fontSize: "1.6rem",
+              fontWeight: 'bold',
+            }}
+          >
+            Não é possível marcar horários no passado. Selecione um horário válido.
           </p>
         )}
 
