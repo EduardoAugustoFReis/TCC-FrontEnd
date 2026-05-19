@@ -63,7 +63,7 @@ const ClientDashboard = ({ appointments, fetchAppointments }: ClientDashboardPro
               </span>
             </p>
             
-            <button onClick={() =>handleDeleteAppointment(appointment.id)}>Cancelar agendamento</button>
+            {appointment.status === 'pending' && <button onClick={() =>handleDeleteAppointment(appointment.id)}>Cancelar agendamento</button>}
           </div>
         );
       })}
