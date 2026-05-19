@@ -52,7 +52,12 @@ const BarberDashboard = ({ appointments,  fetchAppointments}: BarberDashboardPro
             <p>
               <strong>Status:</strong>
               <span className={`status ${appointment.status}`}>
-                {appointment.status}
+                {{
+                    pending: "Pendente",
+                    canceled: "Cancelado",
+                    confirmed: "Confirmado",
+                 }[appointment.status]
+                }
               </span>
             </p>
 

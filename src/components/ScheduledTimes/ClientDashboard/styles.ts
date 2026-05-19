@@ -31,8 +31,8 @@ export const ClientDashboardContainer = styled.div`
 
     .status {
       font-weight: bold;
-      padding: 0.2rem 0.6rem;
-      border-radius: .5rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: .3rem;
       font-size: 1.4rem;
       display: inline-block;
 

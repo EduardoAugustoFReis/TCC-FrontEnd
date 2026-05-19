@@ -54,7 +54,12 @@ const ClientDashboard = ({ appointments, fetchAppointments }: ClientDashboardPro
             <p>
               <strong>Status:</strong>{" "}
               <span className={`status ${appointment.status}`}>
-                {appointment.status}
+                {{
+                    pending: "Pendente",
+                    canceled: "Cancelado",
+                    confirmed: "Confirmado",
+                 }[appointment.status]
+                }
               </span>
             </p>
             

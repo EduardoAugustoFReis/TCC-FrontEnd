@@ -34,22 +34,22 @@ export const BarberDashboardContainer = styled.div`
     .status {
       font-weight: bold;
       margin-left: .5rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: .5rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: .3rem;
       font-size: 1.4rem;
       display: inline-block;
 
       &.pending {
-        background: #fff3cd;
-        color: #b8a300ff;
+        background: ${({ theme }) => theme.colorsAppointment.pendingBackground};
+        color: ${({ theme }) => theme.colorsAppointment.pendingColor};
       }
       &.confirmed {
-        background: #d4edda;
-        color: #2aa847ff;
+        background: ${({ theme }) => theme.colorsAppointment.confirmedBackground};
+        color: ${({ theme }) => theme.colorsAppointment.confirmedColor};
       }
       &.canceled {
-        background: #f8d7da;
-        color: #9a1d2aff;
+        background: ${({ theme }) => theme.colorsAppointment.canceledBackground};
+        color: ${({ theme }) => theme.colorsAppointment.canceledColor};
       }
     }
 
