@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3333"
+  baseURL: "https://tcc-backend-bp8z.onrender.com/"
 });
 
 // Interceptor para incluir o token em todas as requisições
