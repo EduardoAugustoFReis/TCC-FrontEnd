@@ -1,7 +1,6 @@
 import useAuth from "../../../context/Auth/useAuth";
 import type { IService } from "../../../types";
 import { ServiceCardContainer } from "./styles";
-import { FaRegTrashCan } from "react-icons/fa6";
 import { api } from "../../../services/api";
 
 interface ServiceCardProps {
