@@ -109,7 +109,7 @@ const NewEmployee = () => {
 
         <InputInternalForms
           id="phone"
-          label="Phone"
+          label="Telefone"
           placeholder="Digite o telefone do funcionário"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
